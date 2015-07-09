@@ -3,10 +3,11 @@
 <head>
   <title>BreakableToy</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag "vendor/modernizr" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
+
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
@@ -27,14 +28,22 @@
   </nav>
 
   <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %>">
+    <div class="flash <%= key %> alert-box" data-alert>
       <%= value %>
+      <a href="#" class="close">&times;</a>
     </div>
   <%- end -%>
 
-  <%= yield %>
+  <div class="row">
+    <div class="column">
+      <%= yield %>
+    </div>
+  </div>
 
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
+  <script>
+    $(document).foundation();
+  </script>
 </body>
 </html>
