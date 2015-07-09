@@ -15,6 +15,7 @@ gem 'foundation-rails'
 gem 'rails_12factor'
 gem 'kaminari'
 gem 'font-awesome-sass'
+gem 'omniauth-twitter'
 
 group :development, :test do
   gem 'byebug'
