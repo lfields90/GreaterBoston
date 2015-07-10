@@ -3,6 +3,7 @@
 <head>
   <title>BreakableToy</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Oswald:700,300" %>
   <%= javascript_include_tag "vendor/modernizr" %>
   <%= csrf_meta_tags %>
 </head>
@@ -28,12 +29,16 @@
     </section>
   </nav>
 
-  <%- flash.each do |key, value| -%>
-    <div class="flash <%= key %> alert-box" data-alert>
-      <%= value %>
-      <a href="#" class="close">&times;</a>
+  <div class="row">
+    <div class="small-6 columns small-centered">
+    <%- flash.each do |key, value| -%>
+      <div class="flash <%= key %> alert-box" data-alert>
+        <%= value %>
+        <a href="#" class="close">&CircleTimes;</a>
+      </div>
+    <%- end -%>
     </div>
-  <%- end -%>
+  </div>
 
   <div class="row">
     <div class="column">
@@ -43,8 +48,6 @@
 
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
-  <script>
-    $(document).foundation();
-  </script>
+
 </body>
 </html>
