@@ -16,6 +16,10 @@ gem 'rails_12factor'
 gem 'kaminari'
 gem 'font-awesome-sass'
 gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'carrierwave'
+gem 'fog'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug'
