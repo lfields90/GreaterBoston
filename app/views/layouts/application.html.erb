@@ -33,7 +33,7 @@
   <div class="row">
     <div class="small-6 columns small-centered">
     <%- flash.each do |key, value| -%>
-      <div class="flash <%= key %> alert-box" data-alert>
+      <div data-alert class="flash alert-box <%= key %>" >
         <%= value %>
         <a href="#" class="close">&CircleTimes;</a>
       </div>
