@@ -1,11 +1,11 @@
-class CreateCities < ActiveRecord::Migration
+class CreateNeighborhoods < ActiveRecord::Migration
   def change
-    create_table :cities do |t|
+    create_table :neighborhoods do |t|
       t.string :name, null: false
       t.string :description, null: false
+      t.integer :city, null: false
       t.integer :state, null: false
-      t.string :user, null:false
-      t.string :website_url
+      t.integer :user, null: false
 
       t.timestamps null: false
     end
