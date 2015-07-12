@@ -1,9 +1,9 @@
-class City < ActiveRecord::Base
+class State < ActiveRecord::Base
   has_many :users
   has_many :cities
-  has_many :neighborhoods
-  has_many :businesses
-  has_many :events
+  has_many :neighborhoods, through: :cities
+  has_many :businesses, through: :neighborhoods
+  has_many :events, through: :neighborhoods
   has_many :elected_officials
   paginates_per 10
 

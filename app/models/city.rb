@@ -1,4 +1,5 @@
 class City < ActiveRecord::Base
+  belongs_to :state
   has_many :users
   has_many :neighborhoods
   has_many :businesses
