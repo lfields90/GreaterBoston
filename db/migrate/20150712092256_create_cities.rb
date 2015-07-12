@@ -4,7 +4,7 @@ class CreateCities < ActiveRecord::Migration
       t.string :name, null: false
       t.string :description, null: false
       t.integer :state, null: false
-      t.string :user, null:false
+      t.integer :user, null: false
       t.string :website_url
 
       t.timestamps null: false
