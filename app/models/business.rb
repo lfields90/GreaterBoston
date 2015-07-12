@@ -10,8 +10,12 @@ class Business < ActiveRecord::Base
 
   validates :name, presence: true
   validates :description, presence: true
+  validates :address, presence: true
   validates :city, presence: true
   validates :state, presence: true
+  validates :zip_code, presence: true
+  validates :neighborhood, presence: true
+  validates :phone, presence: true
   validates :user, presence: true
 
   def self.search(search)
