@@ -1,6 +1,9 @@
 class City < ActiveRecord::Base
-  belongs_to :user
+  has_many :users
   has_many :neighborhoods
+  has_many :businesses
+  has_many :events
+  has_many :elected_officials
   paginates_per 10
 
   validates :name, presence: true
