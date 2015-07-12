@@ -26,7 +26,6 @@ class CitiesController < ApplicationController
 
   def show
     @city = City.find(params[:id])
-    @reviews = @city.reviews.order('created_at DESC').page(params[:page])
     if params[:search]
       redirect_to cities_path(search: params[:search])
       @cities = City.search(params[:search]).order("name DESC")
@@ -76,7 +75,7 @@ class CitiesController < ApplicationController
       :description,
       :state,
       :website_url,
-      :user_id
+      :user
     )
   end
 end
