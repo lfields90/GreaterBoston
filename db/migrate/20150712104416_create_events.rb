@@ -16,6 +16,8 @@ class CreateEvents < ActiveRecord::Migration
       t.string :twitter_url
       t.string :meet-up_url
       t.string :event-brite_url
+
+      t.timestamps null: false
     end
   end
 end
