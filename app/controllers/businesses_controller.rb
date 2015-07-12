@@ -1,4 +1,4 @@
-class NeighborhoodsController < ApplicationController
+class BusinessesController < ApplicationController
   def index
     if params[:search]
       @businesses = Business.search(params[:search]).order("created_at DESC")
