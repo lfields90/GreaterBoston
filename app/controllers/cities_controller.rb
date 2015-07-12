@@ -43,14 +43,14 @@ class CitiesController < ApplicationController
         (current_user && current_user.admin?)
       if @city.update(city_params)
         flash[:success] = "City updated."
-        redirect_to spot_path(@city)
+        redirect_to city_path(@city)
       else
         flash[:alert] = @city.errors.full_messages.join(".  ")
         render :edit
       end
     else
       flash[:alert] = "You don't have permission to edit that city."
-      redirect_to spot_path(@city)
+      redirect_to city_path(@city)
     end
   end
 
