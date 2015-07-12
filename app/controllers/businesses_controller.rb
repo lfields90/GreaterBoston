@@ -17,7 +17,7 @@ class BusinessesController < ApplicationController
     @business.user = current_user
     if @business.save
       flash[:success] = "Business added."
-      redirect_to businesss_path
+      redirect_to businesses_path
     else
       flash[:alert] = @business.errors.full_messages.join(".  ")
       render :new
@@ -28,7 +28,7 @@ class BusinessesController < ApplicationController
     @business = Business.find(params[:id])
     @reviews = @business.reviews.order('created_at DESC').page(params[:page])
     if params[:search]
-      redirect_to businesss_path(search: params[:search])
+      redirect_to businesses_path(search: params[:search])
       @businesses = Business.search(params[:search]).order("name DESC")
       @businesses = @businesses.page(params[:page])
     end
@@ -61,7 +61,7 @@ class BusinessesController < ApplicationController
         (current_user && current_user.admin?)
       @business.destroy
       flash[:success] = "Business deleted"
-      redirect_to businesss_path
+      redirect_to businesses_path
     else
       flash[:alert] = "You don't have permission to delete that business."
       redirect_to business_path(@business)
