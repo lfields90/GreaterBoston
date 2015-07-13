@@ -4,14 +4,34 @@ Rails.application.routes.draw do
 
   resources :states do
     resources :cities do
-      resources :neighborhoods do
-        resources :businesses, only: [:index, :destroy, :show, :update, :edit]
-        resources :events, only: [:index, :destroy, :show, :update, :edit]
-      end
     end
   end
 
+  resources :cities do
+    resources :neighborhoods do
+    end
+  end
+
+  resources :neighborhoods do
+    resources :businesses, only: [:index, :destroy, :show, :update, :edit] do
+    end
+  end
+
+  resources :businesses, only: [:index, :destroy, :show, :update, :edit] do
+    resources :reviews do
+    end
+  end
+
+  resources :neighborhoods do
+      resources :events, only: [:index, :destroy, :show, :update, :edit]
+  end
+
+  resources :events, only: [:index, :destroy, :show, :update, :edit] do
+      resources :reviews, only: [:index, :destroy, :show, :update, :edit]
+  end
+
   resources :users, only: [:index, :destroy, :show, :update, :edit]
+  resources :votes, only: [:create, :destroy]
 
   get '/auth/:twitter/callback', to: 'sessions#create'
   get '/auth/:facebook/callback', to: 'sessions#create'
