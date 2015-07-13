@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="large-12">
+    <h1> <%= @state.name %> </h1>
+    <div class="panel">
+      <span><b>Description:</b> <%= @state.description %></span><br />
+      <% if @state.website_url %>
+        <span><b>Website:</b> <%= @state.website_url %></span><br />
+        <% end %>
+    </div>
+    <%= link_to "Edit state", edit_state_path %>
+    <%= link_to "Delete state", state_path(@state), method: :delete %>
+    <%= link_to "Home", states_path %>
+  </div>
+</div>
