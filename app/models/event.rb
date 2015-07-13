@@ -2,10 +2,10 @@ class Event < ActiveRecord::Base
   belongs_to :neighborhood
   has_many :rsvps
   has_many :users, through: rsvps
-  has_many :category_memberships
-  has_many :event_categories, through: :category_memberships
-  has_many :feature_memberships
-  has_many :event_features, through: :feature_memberships
+  has_many :event_category_memberships
+  has_many :event_categories, through: :event_category_memberships
+  has_many :event_feature_memberships
+  has_many :event_features, through: :event_feature_memberships
   paginates_per 10
 
   validates :name, presence: true

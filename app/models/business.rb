@@ -1,10 +1,10 @@
 class Business < ActiveRecord::Base
   belongs_to :neighborhood
   has_many :events
-  has_many :category_memberships
-  has_many :business_categories, through: :category_memberships
-  has_many :feature_memberships
-  has_many :business_features, through: :feature_memberships
+  has_many :business_category_memberships
+  has_many :business_categories, through: :business_category_memberships
+  has_many :business_feature_memberships
+  has_many :business_features, through: :business_feature_memberships
   paginates_per 10
 
   validates :name, presence: true
