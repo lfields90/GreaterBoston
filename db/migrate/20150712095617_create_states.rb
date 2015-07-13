@@ -4,7 +4,7 @@ class CreateStates < ActiveRecord::Migration
       t.string :name, null: false
       t.string :description, null: false
       t.string :website_url
-      t.integer :user_id, null: false
+      t.belongs_to :user, null: false
 
       t.timestamps null: false
     end

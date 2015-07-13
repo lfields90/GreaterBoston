@@ -1,8 +1,8 @@
 class CreateBusinessFeatureMemberships < ActiveRecord::Migration
   def change
     create_table :business_feature_memberships do |t|
-      t.integer :business_id, null: false
-      t.integer :business_feature_id, null: false
+      t.belongs_to :business, null: false
+      t.belongs_to :business_feature, null: false
 
       t.timestamps null: false
     end
