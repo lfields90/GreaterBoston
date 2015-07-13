@@ -3,23 +3,19 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :states do
-    resources :cities do
-    end
+    resources :cities
   end
 
   resources :cities do
-    resources :neighborhoods do
-    end
+    resources :neighborhoods
   end
 
   resources :neighborhoods do
-    resources :businesses, only: [:index, :destroy, :show, :update, :edit] do
-    end
+    resources :businesses, only: [:index, :destroy, :show, :update, :edit]
   end
 
   resources :businesses, only: [:index, :destroy, :show, :update, :edit] do
-    resources :reviews do
-    end
+    resources :reviews
   end
 
   resources :neighborhoods do
