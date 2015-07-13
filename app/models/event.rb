@@ -2,21 +2,19 @@ class Event < ActiveRecord::Base
   belongs_to :neighborhood
   has_many :rsvps
   has_many :users, through: rsvps
-  has_many :event_categories
-  has_many :categories, through: :event_categories
-  has_many :event_features
-  has_many :features, through: :event_features
+  has_many :category_memberships
+  has_many :event_categories, through: :category_memberships
+  has_many :feature_memberships
+  has_many :event_features, through: :feature_memberships
   paginates_per 10
 
   validates :name, presence: true
   validates :description, presence: true
   validates :address, presence: true
-  validates :city, presence: true
-  validates :state, presence: true
-  validates :zip_code, presence: true
-  validates :neighborhood, presence: true
-  validates :phone, presence: true
-  validates :user, presence: true
+  validates :zip_code, presence: true, length: { is: 5 }
+  validates :neighborhood_id, presence: true
+  validates :phone, presence: true, length: { minimum: 10 }
+  validates :user_id, presence: true
 
   def self.search(search)
     where("name ILIKE ?
