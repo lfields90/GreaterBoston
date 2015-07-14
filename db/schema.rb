@@ -16,23 +16,6 @@ ActiveRecord::Schema.define(version: 20150712104416) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "businesses", force: :cascade do |t|
-    t.string   "name",            null: false
-    t.string   "description",     null: false
-    t.string   "address",         null: false
-    t.string   "phone",           null: false
-    t.integer  "neighborhood_id", null: false
-    t.string   "zip_code",        null: false
-    t.string   "photo_url",       null: false
-    t.string   "website_url"
-    t.string   "facebook_url"
-    t.string   "twitter_url"
-    t.string   "yelp_url"
-    t.integer  "user_id",         null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
   create_table "cities", force: :cascade do |t|
     t.string   "name",        null: false
     t.string   "description", null: false
@@ -47,9 +30,8 @@ ActiveRecord::Schema.define(version: 20150712104416) do
     t.string   "name",            null: false
     t.string   "description",     null: false
     t.string   "address",         null: false
-    t.string   "phone",           null: false
-    t.integer  "neighborhood_id", null: false
     t.string   "zip_code",        null: false
+    t.string   "phone",           null: false
     t.string   "photo_url",       null: false
     t.string   "website_url"
     t.string   "facebook_url"
@@ -57,6 +39,8 @@ ActiveRecord::Schema.define(version: 20150712104416) do
     t.string   "meet_up_url"
     t.string   "event_brite_url"
     t.integer  "user_id",         null: false
+    t.integer  "neighborhood_id", null: false
+    t.integer  "category_id",     null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
