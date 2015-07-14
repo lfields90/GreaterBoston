@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   belongs_to :neighborhood
-  has_many :rsvps
-  has_many :users, through: rsvps
+  has_many :attendees
+  has_many :users, through: :attendees
   has_many :event_category_memberships
   has_many :event_categories, through: :event_category_memberships
   has_many :event_feature_memberships
