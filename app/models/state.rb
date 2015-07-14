@@ -1,6 +1,6 @@
 class State < ActiveRecord::Base
   belongs_to :user
-  
+
   has_many :cities
   has_many :neighborhoods, through: :cities
   has_many :businesses, through: :neighborhoods
@@ -10,7 +10,6 @@ class State < ActiveRecord::Base
 
   validates :name, presence: true
   validates :description, presence: true
-  validates :user, presence: true
 
   def self.search(search)
     where("name ILIKE ?

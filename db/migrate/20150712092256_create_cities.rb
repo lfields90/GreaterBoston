@@ -5,7 +5,6 @@ class CreateCities < ActiveRecord::Migration
       t.string :description, null: false
       t.belongs_to :state, null: false
       t.string :website_url
-      t.belongs_to :user, null: false
 
       t.timestamps null: false
     end

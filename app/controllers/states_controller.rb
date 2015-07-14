@@ -14,7 +14,6 @@ class StatesController < ApplicationController
 
   def create
     @state = State.new(state_params)
-    @state.user = current_user
     if @state.save
       flash[:success] = "State added."
       redirect_to states_path

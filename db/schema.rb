@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20150712104416) do
     t.string   "description", null: false
     t.integer  "state_id",    null: false
     t.string   "website_url"
-    t.integer  "user_id",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -49,7 +48,6 @@ ActiveRecord::Schema.define(version: 20150712104416) do
     t.string   "name",        null: false
     t.string   "description", null: false
     t.integer  "city_id",     null: false
-    t.integer  "user_id",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -58,7 +56,6 @@ ActiveRecord::Schema.define(version: 20150712104416) do
     t.string   "name",        null: false
     t.string   "description", null: false
     t.string   "website_url"
-    t.integer  "user_id",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

@@ -4,21 +4,23 @@ class CitiesController < ApplicationController
       @cities = City.search(params[:search]).order("created_at DESC")
       @cities = @cities.page(params[:page])
     else
+
       @cities = City.order("created_at DESC").page params[:page]
     end
   end
 
   def new
     @city = City.new
+    @state = State.find(params[:state_id])
   end
 
   def create
+    @state = State.find(params[:state_id])
     @city = City.new(city_params)
-    @city.user = current_user
-    @state = @city.state
+    @city.state = @state
     if @city.save
       flash[:success] = "City added."
-      redirect_to cities_path
+      redirect_to state_cities_path(@state)
     else
       flash[:alert] = @city.errors.full_messages.join(".  ")
       render :new
@@ -68,7 +70,7 @@ class CitiesController < ApplicationController
     end
   end
 
-  private
+  protected
 
   def city_params
     params.require(:city).permit(
@@ -76,7 +78,6 @@ class CitiesController < ApplicationController
       :description,
       :state,
       :website_url,
-      :user
     )
   end
 end
