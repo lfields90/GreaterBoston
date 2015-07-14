@@ -1,0 +1,16 @@
+<h1>States</h1>
+  <% @states.each do |state| %>
+    <div class="panel">
+      <p><%= link_to state.name, state_path(state) %></p>
+    </div>
+  <% end %>
+
+<%= paginate @states %>
+
+<% if @states.present? %>
+  <%= render @states %>
+<% else %>
+  <p>There are no states containing the infomation given in query.</p>
+<% end %>
+
+<%= link_to "Add a state", new_state_path %>

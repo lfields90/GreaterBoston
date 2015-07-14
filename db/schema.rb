@@ -11,24 +11,155 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709033346) do
+ActiveRecord::Schema.define(version: 20150713210241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "attendees", force: :cascade do |t|
+    t.integer  "event_id",   null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "business_categories", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "business_category_memberships", force: :cascade do |t|
+    t.integer  "business_id",          null: false
+    t.integer  "business_category_id", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "business_feature_memberships", force: :cascade do |t|
+    t.integer  "business_id",         null: false
+    t.integer  "business_feature_id", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "business_features", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "businesses", force: :cascade do |t|
+    t.string   "name",            null: false
+    t.string   "description",     null: false
+    t.string   "address",         null: false
+    t.string   "phone",           null: false
+    t.integer  "neighborhood_id", null: false
+    t.string   "zip_code",        null: false
+    t.string   "photo_url",       null: false
+    t.string   "website_url"
+    t.string   "facebook_url"
+    t.string   "twitter_url"
+    t.string   "yelp_url"
+    t.integer  "user_id",         null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.string   "description", null: false
+    t.integer  "state_id",    null: false
+    t.string   "website_url"
+    t.integer  "user_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "event_categories", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "event_category_memberships", force: :cascade do |t|
+    t.integer  "event_id",          null: false
+    t.integer  "event_category_id", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "event_feature_memberships", force: :cascade do |t|
+    t.integer  "event_id",         null: false
+    t.integer  "event_feature_id", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "event_features", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "name",            null: false
+    t.string   "description",     null: false
+    t.string   "address",         null: false
+    t.string   "phone",           null: false
+    t.integer  "neighborhood_id", null: false
+    t.string   "zip_code",        null: false
+    t.string   "photo_url",       null: false
+    t.string   "website_url"
+    t.string   "facebook_url"
+    t.string   "twitter_url"
+    t.string   "meet_up_url"
+    t.string   "event_brite_url"
+    t.integer  "user_id",         null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "neighborhoods", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.string   "description", null: false
+    t.integer  "city_id",     null: false
+    t.integer  "user_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.string   "description", null: false
+    t.string   "website_url"
+    t.integer  "user_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+<<<<<<< HEAD
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+=======
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "first_name",                             null: false
+    t.string   "last_name",                              null: false
+    t.string   "username",                               null: false
+    t.boolean  "admin",                  default: false
+>>>>>>> master
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

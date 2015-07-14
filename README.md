@@ -1,25 +1,30 @@
-![Build Status](https://codeship.com/projects/5162aea0-00b1-0133-408b-22d901b45296/status?branch=master)![Code Climate](https://codeclimate.com/github/lfields90/Study-Buddy.png) ![Coverage Status](https://coveralls.io/repos/lfields90/Study-Buddy/badge.png)
+![Build Status](https://codeship.com/projects/<YOUR_PROJECT_UUID>/status?branch=master)![Code Climate](https://codeclimate.com/github/lfields90/GreaterBoston.png) ![Coverage Status](https://coveralls.io/repos/lfields90/GreaterBoston/badge.png)
 
-# StudyBuddy
-## General Information
+== README
 
-GreaterBoston (http://greaterboston.herokuapp.com) is a Rails app created by me
-for my final project of Launch Academy's 2015 Summer Cohort. It is a site used
-to give a more specific information about the neighborhoods of Boston told by the residents of those neighborhoods. It utilizes Ruby (2.0.0), ActiveRecord, CSS, HTML and Javascript.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-## Getting Started
+Things you may want to cover:
 
-To run the app locally, run:
-<pre><code>rake db:create
-rake db:migrate
-rake db:seed</code></pre>
+* Ruby version
 
-To start a server, run:
-<pre><code>rails s</code></pre>
+* System dependencies
 
-## Testing
+* Configuration
 
-To run the test suite, run:
-<pre><code>rake spec</code></pre>
+* Database creation
 
-##### That's it! Thanks, and good luck studying!
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.

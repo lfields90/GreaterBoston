@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: breakable-toy_production
-  username: breakable-toy
+  database: greater-boston_production
+  username: greater-boston
   password: <%= ENV['GREATER-BOSTON_DATABASE_PASSWORD'] %>
