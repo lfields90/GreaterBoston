@@ -1,4 +1,4 @@
-<h1>neighborhoods</h1>
+<h1>Neighborhoods</h1>
   <% @neighborhoods.each do |neighborhood| %>
     <div class="panel">
       <p><%= link_to neighborhood.name, neighborhood_path(neighborhood) %></p>
@@ -7,4 +7,5 @@
 
 <%= paginate @neighborhoods %>
 
-<%= link_to "Add a neighborhood", new_city_neighborhood_path %>
+<%= link_to "Add a neighborhood", new_city_neighborhood_path %> <br >
+<%= link_to "Home", root_path %>

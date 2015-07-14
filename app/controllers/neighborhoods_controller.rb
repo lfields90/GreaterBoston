@@ -1,11 +1,12 @@
 class NeighborhoodsController < ApplicationController
   def index
+    @city = params[:id]
     if params[:search]
       @neighborhoods = Neighborhood.search(params[:search]).order("created_at DESC")
       @neighborhoods = @neighborhoods.page(params[:page])
-    else
-      @neighborhoods = Neighborhood.order("created_at DESC").page params[:page]
     end
+    @neighborhoods = Neighborhood.order("created_at DESC").page params[:page]
+    @neighborhood = @neighborhoods.first
   end
 
   def new

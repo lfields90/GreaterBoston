@@ -6,23 +6,23 @@ Rails.application.routes.draw do
     resources :cities, only: [:new, :create, :index]
   end
 
-  resources :cities, except: [:new, :create, :index] do
+  resources :cities, except: [:new, :create] do
     resources :neighborhoods, only: [:new, :create, :index]
   end
 
-  resources :neighborhoods, except: [:new, :create, :index] do
+  resources :neighborhoods, except: [:new, :create] do
     resources :events, only: [:new, :create, :index]
   end
 
-  resources :events, except: [:new, :create, :index] do
+  resources :events, except: [:new, :create] do
       resources :reviews, only: [:index, :destroy, :new, :create, :show, :update, :edit]
   end
 
-  resources :neighborhoods, except: [:new, :create, :index] do
+  resources :neighborhoods, except: [:new, :create] do
     resources :businesses, only: [:new, :create, :index]
   end
 
-  resources :businesses, except: [:new, :create, :index] do
+  resources :businesses, except: [:new, :create] do
     resources :reviews, only: [:index, :destroy, :new, :create, :show, :update, :edit]
   end
 
