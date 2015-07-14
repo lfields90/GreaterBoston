@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new, :create, :destroy, :show, :update, :edit]
   resources :votes, only: [:create, :new, :destroy]
 
-  get '/auth/:twitter/callback', to: 'sessions#create'
-  get '/auth/:facebook/callback', to: 'sessions#create'
+  # user_omniauth_authorize_path
+  get '/user/auth/:provider/disconnect', to: 'sessions#disconnect'
   delete '/logout', to: 'sessions#destroy'
 end

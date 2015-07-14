@@ -22,7 +22,6 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
-
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
@@ -123,6 +122,7 @@ Devise.setup do |config|
   # unconfirmed_email column, and copied to email column on successful confirmation.
   config.reconfirmable = true
 
+
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
 
@@ -192,7 +192,6 @@ Devise.setup do |config|
   # Don't put a too small interval or your users won't have the time to
   # change their passwords.
   config.reset_password_within = 6.hours
-
   # When set to false, does not sign a user in automatically after their password is
   # reset. Defaults to true, so a user is signed in automatically after a reset.
   # config.sign_in_after_reset_password = true
@@ -262,4 +261,8 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+    config.mailer_sender = 'mailer@example.com'
+
+    config.omniauth :facebook, "FACEBOOK_KEY", "FACEBOOK_SECRET"
+    config.omniauth :twitter, "TWITTER_KEY", "TWITTER_SECRET"
 end
