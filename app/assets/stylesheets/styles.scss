@@ -1,7 +1,14 @@
 body {
   background-image: radial-gradient(circle at top right, #34495e, #999999);
+  font-size: 1.6rem;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #aebcb9;
+  background-color: #0d0d0d;
 }
 
+a {
+  text-decoration: none;
+}
 .alert-box.alert {
   border: 3px solid #D91E18;
   border-radius: 5px;
