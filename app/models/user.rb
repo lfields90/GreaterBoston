@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   belongs_to :neighborhood
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :first_name, presence: true

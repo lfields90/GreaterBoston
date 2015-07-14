@@ -14,6 +14,7 @@ class StatesController < ApplicationController
 
   def create
     @state = State.new(state_params)
+    binding.pry
     @state.user = current_user
     if @state.save
       flash[:success] = "State added."

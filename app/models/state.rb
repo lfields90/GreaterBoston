@@ -1,5 +1,6 @@
 class State < ActiveRecord::Base
-  has_many :users
+  belongs_to :user
+  
   has_many :cities
   has_many :neighborhoods, through: :cities
   has_many :businesses, through: :neighborhoods
