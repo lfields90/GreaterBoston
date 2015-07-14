@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="large-12">
+    <h1> <%= @city.name %> </h1>
+    <div class="panel">
+      <span><b>Description:</b> <%= @city.description %></span><br />
+      <% if @city.website_url %>
+        <span><b>Website:</b> <%= @city.website_url %></span><br />
+        <% end %>
+    </div>
+    <%= link_to "Edit city", edit_city_path %> <br >
+    <%= link_to "Delete city", city_path(@city), method: :delete %> <br >
+    <%= link_to "Home", state_cities_path(@state) %> <br >
+    <%= link_to "Neighborhoods in this city", city_neighborhoods_path(@city) %> <br >
+  </div>
+</div>

@@ -73,7 +73,6 @@ class StatesController < ApplicationController
       :name,
       :description,
       :website_url,
-      user: current_user
     )
   end
 end

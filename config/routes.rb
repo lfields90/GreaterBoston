@@ -7,25 +7,33 @@ Rails.application.routes.draw do
   end
 
   resources :cities, except: [:new, :create, :index] do
-    resources :neighborhoods
+    resources :neighborhoods, only: [:new, :create, :index]
+  end
+
+  resources :neighborhoods, except: [:new, :create, :index] do
+    resources :events, only: [:new, :create, :index]
+  end
+
+  resources :events, except: [:new, :create, :index] do
+      resources :reviews, only: [:index, :destroy, :new, :create, :show, :update, :edit]
+  end
+
+  resources :neighborhoods, except: [:new, :create, :index] do
+    resources :businesses, only: [:new, :create, :index]
+  end
+
+  resources :businesses, except: [:new, :create, :index] do
+    resources :reviews, only: [:index, :destroy, :new, :create, :show, :update, :edit]
   end
 
   # resources :neighborhoods do
-  #   resources :businesses, only: [:index, :destroy, :new, :create, :show, :update, :edit]
-  # end
-  #
-  # resources :businesses, only: [:index, :destroy, :new, :create, :show, :update, :edit] do
-  #   resources :reviews
-  # end
-  #
-  # resources :neighborhoods do
-  #     resources :events, only: [:index, :destroy, :new, :create, :show, :update, :edit]
+  #     resources :events, only: [:new, :create, :index]
   # end
   #
   # resources :events, only: [:index, :destroy, :new, :create, :show, :update, :edit] do
   #     resources :reviews, only: [:index, :destroy, :new, :create, :show, :update, :edit]
   # end
-  #
+
   # resources :users, only: [:index, :new, :create, :destroy, :show, :update, :edit]
   # resources :votes, only: [:create, :new, :destroy]
   #

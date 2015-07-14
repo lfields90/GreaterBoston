@@ -1,0 +1,14 @@
+<div class="large-12">
+  <h1>Edit Neighborhood</h1>
+  <div class="panel">
+    <%= form_for @city do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+
+      <%= f.submit "Edit neighborhood" %>
+    <%- end -%>
+  </div>
+</div>

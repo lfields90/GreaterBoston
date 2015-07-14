@@ -10,11 +10,13 @@ class NeighborhoodsController < ApplicationController
 
   def new
     @neighborhood = Neighborhood.new
+    @city = City.find(params[:city_id])
   end
 
   def create
+    @city = City.find(params[:city_id])
     @neighborhood = Neighborhood.new(neighborhood_params)
-    @neighborhood.user = current_user
+    @neighborhood.city = @city
     if @neighborhood.save
       flash[:success] = "Neighborhood added."
       redirect_to neighborhoods_path
@@ -26,7 +28,7 @@ class NeighborhoodsController < ApplicationController
 
   def show
     @neighborhood = Neighborhood.find(params[:id])
-    @reviews = @neighborhood.reviews.order('created_at DESC').page(params[:page])
+    @city = @neighborhood.city
     if params[:search]
       redirect_to neighborhoods_path(search: params[:search])
       @neighborhoods = Neighborhood.search(params[:search]).order("name DESC")
@@ -75,9 +77,7 @@ class NeighborhoodsController < ApplicationController
       :name,
       :description,
       :city,
-      :state,
       :website_url,
-      :user
     )
   end
 end

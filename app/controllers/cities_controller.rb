@@ -4,7 +4,6 @@ class CitiesController < ApplicationController
       @cities = City.search(params[:search]).order("created_at DESC")
       @cities = @cities.page(params[:page])
     else
-
       @cities = City.order("created_at DESC").page params[:page]
     end
   end
@@ -29,6 +28,7 @@ class CitiesController < ApplicationController
 
   def show
     @city = City.find(params[:id])
+    @state = @city.state
     if params[:search]
       redirect_to cities_path(search: params[:search])
       @cities = City.search(params[:search]).order("name DESC")
