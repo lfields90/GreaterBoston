@@ -19,7 +19,7 @@ class NeighborhoodsController < ApplicationController
     @neighborhood.city = @city
     if @neighborhood.save
       flash[:success] = "Neighborhood added."
-      redirect_to neighborhoods_path
+      redirect_to city_neighborhoods_path(@city)
     else
       flash[:alert] = @neighborhood.errors.full_messages.join(".  ")
       render :new
@@ -59,14 +59,15 @@ class NeighborhoodsController < ApplicationController
 
   def destroy
     @neighborhood = Neighborhood.find(params[:id])
+    @city = @neighborhood.city
     if (current_user && current_user.id == @neighborhood.user_id) ||
-        (current_user && current_user.admin?)
+      (current_user && current_user.admin?)
       @neighborhood.destroy
       flash[:success] = "Neighborhood deleted"
-      redirect_to neighborhoods_path
+      redirect_to city_neighborhoods_path(@city)
     else
       flash[:alert] = "You don't have permission to delete that neighborhood."
-      redirect_to neighborhood_path(@neighborhood)
+      redirect_to city_neighborhoods_path(@city)
     end
   end
 
