@@ -12,29 +12,24 @@ Rails.application.routes.draw do
 
   resources :neighborhoods, except: [:new, :create] do
     resources :events, only: [:new, :create, :index]
-  end
-
-  resources :events, except: [:new, :create] do
-      resources :reviews, only: [:index, :destroy, :new, :create, :show, :update, :edit]
-  end
-
-  resources :neighborhoods, except: [:new, :create] do
     resources :businesses, only: [:new, :create, :index]
+  end
+
+  resources :events, except: [:new, :create, :index] do
+      resources :reviews, only: [:index, :destroy, :new, :create, :show, :update, :edit]
   end
 
   resources :businesses, except: [:new, :create] do
     resources :reviews, only: [:index, :destroy, :new, :create, :show, :update, :edit]
   end
-
-  # resources :neighborhoods do
-  #     resources :events, only: [:new, :create, :index]
-  # end
+  
   #
   # resources :events, only: [:index, :destroy, :new, :create, :show, :update, :edit] do
   #     resources :reviews, only: [:index, :destroy, :new, :create, :show, :update, :edit]
   # end
 
-  # resources :users, only: [:index, :new, :create, :destroy, :show, :update, :edit]
+  resources :users, only: [:index, :new, :create, :destroy, :show, :update, :edit]
+  resources :categories, only: [:index, :new, :create, :destroy, :show, :update, :edit]
   # resources :votes, only: [:create, :new, :destroy]
   #
   # get '/auth/:twitter/callback', to: 'sessions#create'

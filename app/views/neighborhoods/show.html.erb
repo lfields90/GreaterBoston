@@ -10,6 +10,6 @@
     <%= link_to "Edit neighborhood", edit_neighborhood_path %> <br >
     <%= link_to "Delete neighborhood", neighborhood_path(@neighborhood), method: :delete %> <br >
     <%= link_to "Home", city_neighborhoods_path(@neighborhood) %> <br >
-    <%= link_to "Events in this neighborhood", new_neighborhood_event_path(@neighborhood) %> <br >
+    <%= link_to "Events in this neighborhood", neighborhood_events_path(@neighborhood) %> <br >
   </div>
 </div>

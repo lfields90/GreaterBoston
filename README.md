@@ -26,3 +26,21 @@ category has many events
 
 event belongs to user
 user has many events
+
+on the sign in page where i state
+Hit the state, city, neighborhood, etc..
+They should be displayed by parent id
+
+ex. States should be displayed in alpha order because they dont belong to anything
+
+Cities should be displayed:
+
+- city.state.name -
+all cities in that state sorted alpha
+
+Neighborhoods should be displyed:
+
+- neighborhood.city.name - sorted alpha
+all negihborhoods in that city sorted alpha
+
+So on and so fourth

@@ -66,7 +66,7 @@ class StatesController < ApplicationController
     end
   end
 
-  private
+  protected
 
   def state_params
     params.require(:state).permit(

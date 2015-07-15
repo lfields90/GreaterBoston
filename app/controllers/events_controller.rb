@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   def index
+    @neighborhood = Neighborhood.find(params[:neighborhood_id])
     if params[:search]
       @events = Event.search(params[:search]).order("created_at DESC")
       @events = @events.page(params[:page])
@@ -10,14 +11,17 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @neighborhood = Neighborhood.find(params[:neighborhood_id])
   end
 
   def create
     @event = Event.new(event_params)
-    @event.user = current_user
+    @neighborhood = Neighborhood.find(params[:neighborhood_id])
+    @event.neighborhood = @neighborhood
+    @event.user_id = current_user.id
     if @event.save
       flash[:success] = "Event added."
-      redirect_to events_path
+      redirect_to neighborhood_events_path(@neighborhood)
     else
       flash[:alert] = @event.errors.full_messages.join(".  ")
       render :new
@@ -26,7 +30,6 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @reviews = @event.reviews.order('created_at DESC').page(params[:page])
     if params[:search]
       redirect_to events_path(search: params[:search])
       @events = Event.search(params[:search]).order("name DESC")
@@ -68,7 +71,7 @@ class EventsController < ApplicationController
     end
   end
 
-  private
+  protected
 
   def event_params
     params.require(:event).permit(
@@ -78,14 +81,15 @@ class EventsController < ApplicationController
       :city,
       :state,
       :zip_code,
-      :neighborhood,
+      :neighborhood_id,
       :phone,
       :website_url,
       :photo_url,
       :facebook_url,
       :twitter_url,
-      :event-brite_url,
-      :meet-up_url,
+      :event_brite_url,
+      :meet_up_url,
+      :category_id,
       :user
     )
   end

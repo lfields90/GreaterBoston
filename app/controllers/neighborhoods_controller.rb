@@ -72,7 +72,7 @@ class NeighborhoodsController < ApplicationController
     end
   end
 
-  private
+  protected
 
   def neighborhood_params
     params.require(:neighborhood).permit(

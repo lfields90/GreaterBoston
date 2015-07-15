@@ -68,7 +68,7 @@ class BusinessesController < ApplicationController
     end
   end
 
-  private
+  protected
 
   def business_params
     params.require(:business).permit(
