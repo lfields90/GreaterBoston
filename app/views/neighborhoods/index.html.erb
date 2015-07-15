@@ -1,4 +1,4 @@
-<h1>Neighborhoods</h1>
+<h1>Neighborhoods in <%= @city.name%></h1>
   <% @neighborhoods.each do |neighborhood| %>
     <div class="panel">
       <p><%= link_to neighborhood.name, neighborhood_path(neighborhood) %></p>

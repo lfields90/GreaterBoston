@@ -1,4 +1,4 @@
-<h1>Cities</h1>
+<h1>Cities in <%= @state.name%></h1>
   <% @cities.each do |city| %>
     <div class="panel">
       <p><%= link_to city.name, city_path(city) %></p>
