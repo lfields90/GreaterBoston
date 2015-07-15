@@ -1,12 +1,7 @@
 class EventsController < ApplicationController
   def index
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
-    if params[:search]
-      @events = Event.search(params[:search]).order("created_at DESC")
-      @events = @events.page(params[:page])
-    else
-      @events = Event.order("created_at DESC").page params[:page]
-    end
+    @events = @neighborhood.events.order("created_at DESC").page params[:page]
   end
 
   def new
@@ -30,11 +25,6 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    if params[:search]
-      redirect_to events_path(search: params[:search])
-      @events = Event.search(params[:search]).order("name DESC")
-      @events = @events.page(params[:page])
-    end
   end
 
   def edit
@@ -43,32 +33,20 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    if (current_user && current_user.id == @event.user_id) ||
-        (current_user && current_user.admin?)
-      if @event.update(event_params)
-        flash[:success] = "Event updated."
-        redirect_to event_path(@event)
-      else
-        flash[:alert] = @event.errors.full_messages.join(".  ")
-        render :edit
-      end
-    else
-      flash[:alert] = "You don't have permission to edit that event."
+    if @event.update(event_params)
+      flash[:success] = "Event updated."
       redirect_to event_path(@event)
+    else
+      flash[:alert] = @event.errors.full_messages.join(".  ")
+      render :edit
     end
   end
 
   def destroy
     @event = Event.find(params[:id])
-    if (current_user && current_user.id == @event.user_id) ||
-        (current_user && current_user.admin?)
-      @event.destroy
-      flash[:success] = "Event deleted"
-      redirect_to events_path
-    else
-      flash[:alert] = "You don't have permission to delete that event."
-      redirect_to event_path(@event)
-    end
+    @event.destroy
+    flash[:success] = "Event deleted"
+    redirect_to events_path
   end
 
   protected

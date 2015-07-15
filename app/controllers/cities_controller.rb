@@ -1,11 +1,7 @@
 class CitiesController < ApplicationController
   def index
-    if params[:search]
-      @cities = City.search(params[:search]).order("created_at DESC")
-      @cities = @cities.page(params[:page])
-    else
-      @cities = City.order("created_at DESC").page params[:page]
-    end
+    @state = State.find(params[:state_id])
+    @cities = @state.cities.order("name").page params[:page]
   end
 
   def new
@@ -29,11 +25,6 @@ class CitiesController < ApplicationController
   def show
     @city = City.find(params[:id])
     @state = @city.state
-    if params[:search]
-      redirect_to cities_path(search: params[:search])
-      @cities = City.search(params[:search]).order("name DESC")
-      @cities = @cities.page(params[:page])
-    end
   end
 
   def edit
@@ -42,32 +33,20 @@ class CitiesController < ApplicationController
 
   def update
     @city = City.find(params[:id])
-    if (current_user && current_user.id == @city.user_id) ||
-        (current_user && current_user.admin?)
-      if @city.update(city_params)
-        flash[:success] = "City updated."
-        redirect_to city_path(@city)
-      else
-        flash[:alert] = @city.errors.full_messages.join(".  ")
-        render :edit
-      end
-    else
-      flash[:alert] = "You don't have permission to edit that city."
+    if @city.update(city_params)
+      flash[:success] = "City updated."
       redirect_to city_path(@city)
+    else
+      flash[:alert] = @city.errors.full_messages.join(".  ")
+      render :edit
     end
   end
 
   def destroy
     @city = City.find(params[:id])
-    if (current_user && current_user.id == @city.user_id) ||
-        (current_user && current_user.admin?)
-      @city.destroy
-      flash[:success] = "City deleted"
-      redirect_to cities_path
-    else
-      flash[:alert] = "You don't have permission to delete that city."
-      redirect_to city_path(@city)
-    end
+    @city.destroy
+    flash[:success] = "City deleted"
+    redirect_to cities_path
   end
 
   protected

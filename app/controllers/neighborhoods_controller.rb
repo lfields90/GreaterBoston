@@ -1,12 +1,7 @@
 class NeighborhoodsController < ApplicationController
   def index
-    @city = params[:id]
-    if params[:search]
-      @neighborhoods = Neighborhood.search(params[:search]).order("name")
-      @neighborhoods = @neighborhoods.page(params[:page])
-    end
-    @neighborhoods = Neighborhood.order("name").page params[:page]
-    @neighborhood = @neighborhoods.first
+    @city = City.find(params[:city_id])
+    @neighborhoods = @city.neighborhoods.order("name").page params[:page]
   end
 
   def new
@@ -30,11 +25,6 @@ class NeighborhoodsController < ApplicationController
   def show
     @neighborhood = Neighborhood.find(params[:id])
     @city = @neighborhood.city
-    if params[:search]
-      redirect_to neighborhoods_path(search: params[:search])
-      @neighborhoods = Neighborhood.search(params[:search]).order("name DESC")
-      @neighborhoods = @neighborhoods.page(params[:page])
-    end
   end
 
   def edit
@@ -43,33 +33,20 @@ class NeighborhoodsController < ApplicationController
 
   def update
     @neighborhood = Neighborhood.find(params[:id])
-    if (current_user && current_user.id == @neighborhood.user_id) ||
-        (current_user && current_user.admin?)
-      if @neighborhood.update(neighborhood_params)
-        flash[:success] = "Neighborhood updated."
-        redirect_to neighborhood_path(@neighborhood)
-      else
-        flash[:alert] = @neighborhood.errors.full_messages.join(".  ")
-        render :edit
-      end
-    else
-      flash[:alert] = "You don't have permission to edit that neighborhood."
+    if @neighborhood.update(neighborhood_params)
+      flash[:success] = "Neighborhood updated."
       redirect_to neighborhood_path(@neighborhood)
+    else
+      flash[:alert] = @neighborhood.errors.full_messages.join(".  ")
+      render :edit
     end
   end
 
   def destroy
     @neighborhood = Neighborhood.find(params[:id])
-    @city = @neighborhood.city
-    if (current_user && current_user.id == @neighborhood.user_id) ||
-      (current_user && current_user.admin?)
-      @neighborhood.destroy
-      flash[:success] = "Neighborhood deleted"
-      redirect_to city_neighborhoods_path(@city)
-    else
-      flash[:alert] = "You don't have permission to delete that neighborhood."
-      redirect_to city_neighborhoods_path(@city)
-    end
+    @neighborhood.destroy
+    flash[:success] = "Neighborhood deleted"
+    redirect_to city_neighborhoods_path(@city)
   end
 
   protected
