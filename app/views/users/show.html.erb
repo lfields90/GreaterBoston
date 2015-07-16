@@ -1,3 +1,17 @@
-<% if current_user %>
-<%= image_tag(current_user.profile_photo)%>
-<% end %>
+<!-- image_tag(current_user.profile_photo) -->
+  <div class="page-header">
+    <center>
+      <h1>
+        <%= current_user.first_name %> <%= current_user.last_name %>
+      </h1>
+    </center>
+  </div>
+  <div class="panel">
+      <ul>
+        <li><strong>Name:</strong> <%= current_user.first_name %></li>
+        <li><strong>email:</strong> <%= current_user.email %></li>
+      </ul>
+  </div>
+  <p><%= link_to("Hit the State!", states_path) %></p>
+  <p><%= link_to("Hit the Categories Section!", categories_path) %></p><br >
+  <p><%= link_to("Edit User Profile", edit_user_registration_path) %></p>

@@ -1,10 +1,11 @@
-<h1>Cities</h1>
-  <% @cities.each do |city| %>
+<h1>Neighborhoods in <%= @city.name%></h1>
+  <% @neighborhoods.each do |neighborhood| %>
     <div class="panel">
-      <p><%= link_to city.name, city_path(city) %></p>
+      <p><%= link_to neighborhood.name, neighborhood_path(neighborhood) %></p>
     </div>
   <% end %>
 
-<%= paginate @cities %>
+<%= paginate @neighborhoods %>
 
-<%= link_to "Add a city", new_city_path %>
+<%= link_to "Add a neighborhood", new_city_neighborhood_path %> <br >
+<%= link_to "View cities", state_cities_path(@city.state) %>

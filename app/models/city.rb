@@ -10,7 +10,6 @@ class City < ActiveRecord::Base
   validates :name, presence: true
   validates :description, presence: true
   validates :state_id, presence: true
-  validates :user_id, presence: true
 
   def self.search(search)
     where("name ILIKE ?

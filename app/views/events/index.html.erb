@@ -1,0 +1,11 @@
+<h1> Events in <%= @neighborhood.name%></h1>
+  <% @events.each do |event| %>
+    <div class="panel">
+      <p><%= link_to event.name, event_path(event) %></p>
+    </div>
+  <% end %>
+
+<%= paginate @events %>
+
+<%= link_to "Add a event", new_neighborhood_event_path %> <br >
+<%= link_to "Neighborhoods in the city", city_neighborhoods_path(@neighborhood.city) %>

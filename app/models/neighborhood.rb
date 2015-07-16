@@ -8,9 +8,7 @@ class Neighborhood < ActiveRecord::Base
 
   validates :name, presence: true
   validates :description, presence: true
-  validates :city, presence: true
-  validates :state, presence: true
-  validates :user, presence: true
+  validates :city_id, presence: true
 
   def self.search(search)
     where("name ILIKE ?

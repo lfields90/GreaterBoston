@@ -12,4 +12,21 @@ FactoryGirl.define do
       admin true
     end
   end
+
+  factory :state do
+    name { Faker::Address.city }
+    description { Faker::Lorem.sentence }
+  end
+
+  factory :city do
+    name { Faker::Address.city }
+    description { Faker::Lorem.sentence }
+    state_id { 1 }
+  end
+
+  factory :neighborhood do
+    name { Faker::Address.city }
+    description { Faker::Lorem.sentence }
+    city_id { 1 }
+  end
 end

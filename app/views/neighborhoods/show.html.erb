@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="large-12">
+    <h1> <%= @neighborhood.name %> </h1>
+    <div class="panel">
+      <span><b>Description:</b> <%= @neighborhood.description %></span><br />
+      <% if @neighborhood.website_url %>
+        <span><b>Website:</b> <%= @neighborhood.website_url %></span><br />
+        <% end %>
+    </div>
+    <%= link_to "Edit neighborhood", edit_neighborhood_path %> <br >
+    <%= link_to "Delete neighborhood", neighborhood_path(@neighborhood), method: :delete %> <br >
+    <%= link_to "Back to city neighborhoods", city_neighborhoods_path(@city) %> <br >
+    <%= link_to "Events in this neighborhood", neighborhood_events_path(@neighborhood) %> <br >
+  </div>
+</div>

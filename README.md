@@ -1,30 +1,46 @@
 ![Build Status](https://codeship.com/projects/<YOUR_PROJECT_UUID>/status?branch=master)![Code Climate](https://codeclimate.com/github/lfields90/GreaterBoston.png) ![Coverage Status](https://coveralls.io/repos/lfields90/GreaterBoston/badge.png)
 
-== README
+Predefined cities:
+- Boston
+- Brookline
+- Cambridge
+- Watertown
+- Somerville
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Category Name
+- Bar
+- Restaurant
+- Nightclub
+- Doctor's Office
+- Municipality
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+neighborhood belongs to city
+city has many neighborhoods
+
+event belogns to neighborhood
+neighborhood has many events
+
+event belongs to category
+category has many events
+
+event belongs to user
+user has many events
+
+on the sign in page where i state
+Hit the state, city, neighborhood, etc..
+They should be displayed by parent id
+
+ex. States should be displayed in alpha order because they dont belong to anything
+
+Cities should be displayed:
+
+- city.state.name -
+all cities in that state sorted alpha
+
+Neighborhoods should be displyed:
+
+- neighborhood.city.name - sorted alpha
+all negihborhoods in that city sorted alpha
+
+So on and so fourth

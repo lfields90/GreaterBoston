@@ -1,4 +1,4 @@
-<h1>Cities</h1>
+<h1>Cities in <%= @state.name%></h1>
   <% @cities.each do |city| %>
     <div class="panel">
       <p><%= link_to city.name, city_path(city) %></p>
@@ -7,4 +7,5 @@
 
 <%= paginate @cities %>
 
-<%= link_to "Add a city", new_city_path %>
+<%= link_to "Add a city", new_state_city_path %> <br >
+<%= link_to "View states", states_path %>

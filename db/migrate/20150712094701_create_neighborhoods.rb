@@ -3,8 +3,8 @@ class CreateNeighborhoods < ActiveRecord::Migration
     create_table :neighborhoods do |t|
       t.string :name, null: false
       t.string :description, null: false
+      t.string :website_url
       t.belongs_to :city, null: false
-      t.belongs_to :user, null: false
 
       t.timestamps null: false
     end

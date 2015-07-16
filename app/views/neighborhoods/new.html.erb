@@ -1,7 +1,7 @@
 <div class="large-12">
   <h1>New Neighborhood</h1>
   <div class="panel">
-    <%= form_for @neighborhood do |f| %>
+    <%= form_for [@city, @neighborhood] do |f| %>
       <%= f.label :name %>
       <%= f.text_field :name %>
 
