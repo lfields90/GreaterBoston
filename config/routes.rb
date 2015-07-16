@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   get 'profiles/show'
-
-  root 'homes#index'
+  get 'homes/index'
+  
+  root 'users#show'
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
   resources :states do
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
   resources :businesses, except: [:new, :create] do
     resources :reviews, only: [:index, :destroy, :new, :create, :show, :update, :edit]
   end
-  
+
   #
   # resources :events, only: [:index, :destroy, :new, :create, :show, :update, :edit] do
   #     resources :reviews, only: [:index, :destroy, :new, :create, :show, :update, :edit]

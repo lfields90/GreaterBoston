@@ -18,7 +18,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    if current_user
+      @user = User.find(current_user)
+    else
+      redirect_to '/homes/index'
+    end
   end
 
   def edit
