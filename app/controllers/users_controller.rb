@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
+    @user = current_user
     if current_user.try(:admin?)
       @users = User.order('created_at DESC').page params[:page]
     else
