@@ -13,11 +13,20 @@ FactoryGirl.define do
     end
   end
 
+  factory :state do
+    name { Faker::Address.city }
+    description { Faker::Lorem.sentence }
+  end
+
+  factory :city do
+    name { Faker::Address.city }
+    description { Faker::Lorem.sentence }
+    state_id { 1 }
+  end
+
   factory :neighborhood do
     name { Faker::Address.city }
     description { Faker::Lorem.sentence }
-    state { 1 }
     city_id { 1 }
-    user_id { 1 }
   end
 end

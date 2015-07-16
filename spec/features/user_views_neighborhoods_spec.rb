@@ -7,13 +7,15 @@ feature "User views neighborhoods" do
   # Acceptance criteria:
   # - User can view a list of neighborhoods and see details for each one.
 
-  scenario 'I want to view study spots' do
-    spot1 = FactoryGirl.create(:neighborhood)
-    spot2 = FactoryGirl.create(:neighborhood)
+  scenario 'I want to view neighborhoods' do
+    state = FactoryGirl.create(:state)
+    city = FactoryGirl.create(:city, state_id: state.id)
+    neighborhood1 = FactoryGirl.create(:neighborhood, city_id: city.id)
+    neighborhood2 = FactoryGirl.create(:neighborhood, city_id: city.id)
 
-    visit neighborhoods_path
+    visit city_neighborhoods_path(city.id)
 
-    expect(page).to have_content(spot1.name)
-    expect(page).to have_content(spot2.name)
+    expect(page).to have_content(neighborhood1.name)
+    expect(page).to have_content(neighborhood2.name)
   end
 end
