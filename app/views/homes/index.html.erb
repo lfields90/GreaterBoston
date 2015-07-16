@@ -6,12 +6,11 @@
     <div class="panel-body">
       <ul>
         <li><strong>Name:</strong> <%= current_user.first_name %></li>
+        <li><strong>email:</strong> <%= current_user.email %></li>
       </ul>
     </div>
   </div>
   <p><%= link_to("Hit the State!", states_path) %></p>
-  <p><%= link_to("Hit the City!", cities_path) %></p>
-  <p><%= link_to("Hit the Neighborhood!", neighborhoods_path) %></p>
   <p><%= link_to("Hit the Categories Section!", categories_path) %></p>
 <% else %>
   <%= render 'welcome' %>

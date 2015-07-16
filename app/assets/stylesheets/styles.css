@@ -2,7 +2,7 @@ body {
   background-image: radial-gradient(circle at top right, #34495e, #999999);
   font-size: 1.6rem;
   font-family: "Source Sans Pro", sans-serif;
-  color: #aebcb9;
+  color: black;
   background-color: #0d0d0d;
 }
 
@@ -46,4 +46,4 @@ a {
   background: transparent;
   color: #fff;
   font-size: 2rem;
-  top: 19px;}
+  top: 19px;}.cd-user-modal {  visibility: hidden;  opacity: 0;  transition: opacity 0.3s 0, visibility 0 0.3s;}.cd-user-modal.is-visible {  visibility: visible;  opacity: 1;  transition: opacity 0.3s 0, visibility 0 0;}
