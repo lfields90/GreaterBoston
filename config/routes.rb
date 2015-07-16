@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   get 'profiles/show'
   get 'homes/index'
-  
   root 'users#show'
+  
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
   resources :states do
@@ -19,11 +19,13 @@ Rails.application.routes.draw do
   end
 
   resources :events, except: [:new, :create, :index] do
-      resources :reviews, only: [:index, :destroy, :new, :create, :show, :update, :edit]
+    resources :reviews,
+      only: [:index, :destroy, :new, :create, :show, :update, :edit]
   end
 
   resources :businesses, except: [:new, :create] do
-    resources :reviews, only: [:index, :destroy, :new, :create, :show, :update, :edit]
+    resources :reviews,
+      only: [:index, :destroy, :new, :create, :show, :update, :edit]
   end
 
   #
@@ -31,8 +33,10 @@ Rails.application.routes.draw do
   #     resources :reviews, only: [:index, :destroy, :new, :create, :show, :update, :edit]
   # end
 
-  resources :users, only: [:index, :new, :create, :destroy, :show, :update, :edit]
-  resources :categories, only: [:index, :new, :create, :destroy, :show, :update, :edit]
+  resources :users,
+    only: [:index, :new, :create, :destroy, :show, :update, :edit]
+  resources :categories,
+    only: [:index, :new, :create, :destroy, :show, :update, :edit]
   # resources :votes, only: [:create, :new, :destroy]
   #
   # get '/auth/:twitter/callback', to: 'sessions#create'
