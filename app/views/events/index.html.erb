@@ -1,3 +1,43 @@
+  <div class="row">
+    <div class="small-3 small-centered columns">
+      <h5 class="local-header">Currently in</h5>
+      <h2 class="local-header"> <%= @neighborhood.name %>, MA </h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <% 3.times do %>
+    <div class="small-4 columns">
+      <p class="news">This will be news</p>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="small-3 small-centered columns">
+      <h5 class="local-header">Events Around</h5>
+      <h2 class="local-header"> <%= @neighborhood.name %></h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <% 3.times do %>
+    <div class="small-4 columns">
+      <p class="news">There will be a map here and event info below</p>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="small-11 small-centered columns">
+      <p class="neighborhood-info">There will be neighborhood info here</p>
+    </div>
+  </div>
+
+
+
+
+
 <h1> Events in <%= @neighborhood.name%></h1>
   <% @events.each do |event| %>
     <div class="panel">
@@ -9,3 +49,8 @@
 
 <%= link_to "Add a event", new_neighborhood_event_path %> <br >
 <%= link_to "Neighborhoods in the city", city_neighborhoods_path(@neighborhood.city) %>
+
+<div class="row">
+  <div class="small-3 columns">...</div>
+  <div class="small-9 columns">...</div>
+</div>

@@ -1,10 +1,38 @@
-<div class="large-12">
+  <div class="row">
+    <div class="small-12">
+      <p class="landing-photo">This will be a large photo of the neighborhood</p>
+    </div>
+  </div>
+
   <div class="row">
     <div class="small-3 small-centered columns">
       <h5 class="local-header">Currently in</h5>
       <h2 class="local-header"> <%= @neighborhood.name %>, MA </h2>
     </div>
-    <div class="panel">
+  </div>
+
+  <div class="row">
+    <% 3.times do %>
+    <div class="small-4 columns">
+      <p class="news">There will be a map here and event info below</p>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="small-3 small-centered columns">
+      <h5 class="local-header">Featured</h5>
+      <h2 class="local-header">This Week</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-11 small-centered columns">
+      <p class="neighborhood-info">There will be neighborhood info here</p>
+    </div>
+  </div>
+
+    <div class="">
       <span><b>Description:</b> <%= @neighborhood.description %></span><br />
       <% if @neighborhood.website_url %>
         <span><b>Website:</b> <%= @neighborhood.website_url %></span><br />
