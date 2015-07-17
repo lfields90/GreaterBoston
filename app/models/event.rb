@@ -8,10 +8,12 @@ class Event < ActiveRecord::Base
   paginates_per 10
 
   validates :name, presence: true
-  validates :header, presence: true
+  validates :event_header, presence: true, length: { maxium: 140 }
   validates :description, presence: true
+  validates :host, presence: true
   validates :address, presence: true
   validates :zip_code, presence: true, length: { is: 5 }
+  validates :date, presence: true
   validates :phone, presence: true, length: { minimum: 10 }
   validates :photo_url, presence: true
   validates :user_id, presence: true

@@ -1,6 +1,5 @@
 class NeighborhoodsController < ApplicationController
   def index
-    binding.pry
     @city = City.find(params[:city_id])
     @neighborhoods = @city.neighborhoods.order("name").page params[:page]
   end

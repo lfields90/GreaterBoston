@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716174204) do
+ActiveRecord::Schema.define(version: 20150715002755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,10 @@ ActiveRecord::Schema.define(version: 20150716174204) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name",            null: false
+    t.string   "event_header",    null: false
     t.string   "description",     null: false
+    t.string   "host",            null: false
+    t.date     "date",            null: false
     t.string   "address",         null: false
     t.string   "zip_code",        null: false
     t.string   "phone",           null: false
@@ -84,7 +87,6 @@ ActiveRecord::Schema.define(version: 20150716174204) do
     t.string   "last_name",                              null: false
     t.string   "username",                               null: false
     t.boolean  "admin",                  default: false
-    t.string   "profile_photo"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
