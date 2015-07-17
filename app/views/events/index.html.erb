@@ -20,10 +20,6 @@
   </div>
 </div>
 
-
-
-
-
 <div class="current">
   <div class="shaded">
     <div class="row">
@@ -34,14 +30,28 @@
     </div>
   </div>
 
-  <div class="row spacer">
-    <% 3.times do %>
-    <div class="small-4 columns">
-      <p class="news">There will be a map here and event info below</p>
-    </div>
-    <% end %>
-  </div>
-</div>
+  <div class="row events-around-spacer">
+    <div class="row">
+      <% @featured_events.each do |event| %>
+      <div class="medium-6 large-4 columns">
+        <article class="article-card">
+          <img class="event-topper" src="http://i.onionstatic.com/avclub/5199/85/16x9/960.jpg">
+          <div class="card-content post-icon">
+            <div class="same-line">
+              <%= image_tag("Greater.png") %>
+              <p class="post-author">By <a href="#"> <%= event.user.first_name %> <%= event.user.last_name %> </a></p>
+            </div>
+            <h4>Insert Events Header Here</h4>
+            <p> <%= event.description %> </p>
+            <p>
+              <a href="#">Read on...</a>
+              <a href="#" class="right"><i class="fa fa-share-alt"></i></a>
+              <a href="#" class="right"><i class="fa fa-heart"></i></a>
+            </p>
+          </div>
+        </article>
+      </div>
+      <% end %>
 
   <div class="row">
     <div class="small-11 small-centered columns">
@@ -66,8 +76,6 @@
       <p><%= link_to event.name, event_path(event) %></p>
     </div>
   <% end %>
-
-<%= paginate @events %>
 
 <%= link_to "Add a event", new_neighborhood_event_path %> <br >
 <%= link_to "Neighborhoods in the city", city_neighborhoods_path(@neighborhood.city) %>

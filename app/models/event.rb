@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
   belongs_to :neighborhood
   belongs_to :category
+  belongs_to :user
 
   has_many :attendees
   has_many :users, through: :attendees
