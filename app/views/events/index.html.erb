@@ -1,3 +1,4 @@
+<div class="event-background">
   <div class="row">
     <div class="small-3 small-centered columns">
       <h5 class="local-header">Currently in</h5>
@@ -5,33 +6,45 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row spacer">
     <% 3.times do %>
     <div class="small-4 columns">
       <p class="news">This will be news</p>
     </div>
     <% end %>
   </div>
+</div>
 
-  <div class="row">
-    <div class="small-3 small-centered columns">
-      <h5 class="local-header">Events Around</h5>
-      <h2 class="local-header"> <%= @neighborhood.name %></h2>
+<div class="current">
+  <div class="shaded">
+    <div class="row">
+      <div class="small-3 small-centered columns">
+          <h5 class="local-header">Events Around</h5>
+          <h2 class="local-header"> <%= @neighborhood.name %></h2>
+      </div>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row spacer">
     <% 3.times do %>
     <div class="small-4 columns">
       <p class="news">There will be a map here and event info below</p>
     </div>
     <% end %>
   </div>
+</div>
 
   <div class="row">
     <div class="small-11 small-centered columns">
       <p class="neighborhood-info">There will be neighborhood info here</p>
     </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12columns">
+      <h3 class="gimmie-margin">Events by month</h3>
+    </div>
+      <p class="neighborhood-info">Work damnit</p>
   </div>
 
 
