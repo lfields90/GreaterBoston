@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'profiles/show'
   get 'homes/index'
-  root 'users#show'
+  root 'homes#index'
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
   resources :states do

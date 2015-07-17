@@ -35,13 +35,13 @@
       <% @featured_events.each do |event| %>
       <div class="medium-6 large-4 columns">
         <article class="article-card">
-          <img class="event-topper" src="http://i.onionstatic.com/avclub/5199/85/16x9/960.jpg">
+            <img class="event-topper" src= "<%= event.photo_url %>" />
           <div class="card-content post-icon">
             <div class="same-line">
               <%= image_tag("Greater.png") %>
-              <p class="post-author">By <a href="#"> <%= event.user.first_name %> <%= event.user.last_name %> </a></p>
+              <a href="#" class="post-author"> By: <%= event.user.first_name %> <%= event.user.last_name %> </a>
             </div>
-            <h4>Insert Events Header Here</h4>
+            <h4> <%= event.event_header %> </h4>
             <p> <%= event.description %> </p>
             <p>
               <a href="#">Read on...</a>

@@ -6,6 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Category.create([
+  { name: 'House Party' }, { name: 'Concert' }, { name: 'Block Party' },
+  { name: 'Picnic' }, { name: 'Field Day' }, { name: 'BBQ' },
+  { name: 'Networking' }, { name: 'Meetup' }, { name: 'Yard Sale' }
+])
+
 states = State.create([
   { name: 'Massachusetts', description: "Amazing place"},
 ])
