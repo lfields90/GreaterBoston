@@ -8,6 +8,7 @@ class Event < ActiveRecord::Base
   paginates_per 10
 
   validates :name, presence: true
+  validates :header, presence: true
   validates :description, presence: true
   validates :address, presence: true
   validates :zip_code, presence: true, length: { is: 5 }

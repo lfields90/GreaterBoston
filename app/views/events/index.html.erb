@@ -11,7 +11,7 @@
     <div class="small-4 columns">
       <div class="header panel">
         <div class="sign">
-          <h1>This Week</h1>
+          <h1>News</h1>
         </div>
         <p><span>Dude! I Want that!</span> In addition to their portability and minimal space requirements for storage, the Equalizer bars also simplify workouts by consolidating all exercises to a single machine that requires no weight stack adjustments or significant alterations between them. Each weighs 8 pounds, and the system has been tested to support up to 400 pounds of body weight.</p>
       </div>
@@ -46,41 +46,16 @@
             <p>
               <a href="#">Read on...</a>
               <a href="#" class="right"><i class="fa fa-share-alt"></i></a>
-              <a href="#" class="right"><i class="fa fa-heart"></i></a>
+              <a href="#" class="right"><i class="fa fa-heart"></i></a><br >
+              <%= link_to event.name, event_path(event) %>
             </p>
           </div>
         </article>
       </div>
       <% end %>
-
-  <div class="row">
-    <div class="small-11 small-centered columns">
-      <p class="neighborhood-info">There will be neighborhood info here</p>
     </div>
   </div>
-
-  <div class="row">
-    <div class="small-12columns">
-      <h3 class="gimmie-margin">Events by month</h3>
-    </div>
-      <p class="neighborhood-info">Work damnit</p>
-  </div>
-
-
-
-
-
-<h1> Events in <%= @neighborhood.name%></h1>
-  <% @events.each do |event| %>
-    <div class="panel">
-      <p><%= link_to event.name, event_path(event) %></p>
-    </div>
-  <% end %>
 
 <%= link_to "Add a event", new_neighborhood_event_path %> <br >
 <%= link_to "Neighborhoods in the city", city_neighborhoods_path(@neighborhood.city) %>
-
-<div class="row">
-  <div class="small-3 columns">...</div>
-  <div class="small-9 columns">...</div>
 </div>
