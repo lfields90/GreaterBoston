@@ -40,4 +40,8 @@ FactoryGirl.define do
     photo_url { Faker::Avatar.image }
     website_url { Faker::Internet.url }
   end
+
+  factory :category do
+    name { Faker::Company.suffix }
+  end
 end

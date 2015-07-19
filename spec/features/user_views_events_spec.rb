@@ -8,10 +8,16 @@ feature "User views neighborhoods" do
   # - User can view a list of neighborhoods and see details for each one.
 
   scenario 'I want to view neighborhoods' do
+    user = FactoryGirl.create(:user)
     state = FactoryGirl.create(:state)
     city = FactoryGirl.create(:city, state_id: state.id)
     neighborhood = FactoryGirl.create(:neighborhood, city_id: city.id)
-    event = FactoryGirl.create(:neighborhood, city_id: city.id)
+    event = FactoryGirl.create(
+      :event,
+      user_id: user.id,
+      neighborhood_id: neighborhood.id,
+      category_id: 
+    )
 
     visit city_neighborhoods_path(city.id)
 
