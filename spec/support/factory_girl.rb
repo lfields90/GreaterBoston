@@ -38,5 +38,6 @@ FactoryGirl.define do
     zip_code { Faker::Address.zip_code }
     phone { Faker::Number.number(10) }
     photo_url { Faker::Avatar.image }
+    website_url { Faker::Internet.url }
   end
 end
