@@ -37,4 +37,17 @@ feature "User creates an event" do
 
     expect(page).to have_content("LaMonte's Yard Sale")
   end
+
+  scenario 'Try to create an event while missing info' do
+
+    fill_in 'Name', with: "LaMonte's Yard Sale"
+    fill_in 'Description', with: "This is going to be a pretty awesome Sale"
+    fill_in 'Address', with: "Somewhere in Boston-ish"
+    fill_in 'Zip code', with: "00101"
+    fill_in 'Photo url', with: "#{Rails.root}/spec/support/images/example_photo.jpg"
+    click_button "Add new event"
+
+    expect(page).to have_content("Phone is too short ")
+    expect(page).to have_content("Phone can't be blank")
+  end
 end
