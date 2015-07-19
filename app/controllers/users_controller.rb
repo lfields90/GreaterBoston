@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
+    @user = current_user
     if current_user.try(:admin?)
       @users = User.order('created_at DESC').page params[:page]
     else
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
 
   def show
     if current_user
-      @user = User.find(current_user)
+      @user = User.find(current_user.id)
     else
       redirect_to '/homes/index'
     end
