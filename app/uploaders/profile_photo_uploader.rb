@@ -1,10 +1,10 @@
 # encoding: utf-8
 
 class ProfilePhotoUploader < CarrierWave::Uploader::Base
-  if Rails.env.test?
-    storage :file
-  else
+  if Rails.env.production?
     storage :fog
+  else
+    storage :file
   end
 
   def store_dir
