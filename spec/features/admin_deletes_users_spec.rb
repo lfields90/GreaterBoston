@@ -1,6 +1,6 @@
 require 'rails_helper'
 
- feature "Admin deletes users" do
+feature "Admin deletes users" do
 
   pending scenario 'I am an admin and I want to delete a user' do
 

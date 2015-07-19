@@ -32,7 +32,8 @@ feature "User creates an event" do
     fill_in 'Address', with: "Somewhere in Boston-ish"
     fill_in 'Zip code', with: "00101"
     fill_in 'Phone', with: "1001101010"
-    fill_in 'Photo url', with: "#{Rails.root}/spec/support/images/example_photo.jpg"
+    fill_in 'Photo url',
+      with: "#{Rails.root}/spec/support/images/example_photo.jpg"
     click_button "Add new event"
 
     expect(page).to have_content("LaMonte's Yard Sale")
@@ -44,7 +45,8 @@ feature "User creates an event" do
     fill_in 'Description', with: "This is going to be a pretty awesome Sale"
     fill_in 'Address', with: "Somewhere in Boston-ish"
     fill_in 'Zip code', with: "00101"
-    fill_in 'Photo url', with: "#{Rails.root}/spec/support/images/example_photo.jpg"
+    fill_in 'Photo url',
+      with: "#{Rails.root}/spec/support/images/example_photo.jpg"
     click_button "Add new event"
 
     expect(page).to have_content("Phone is too short ")
