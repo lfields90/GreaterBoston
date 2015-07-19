@@ -4,6 +4,7 @@ FactoryGirl.define do
   factory :user do
     email { Faker::Internet.email }
     password { Faker::Internet.password(10, 20) }
+    profile_photo { Faker::Avatar.image }
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
     username { Faker::Internet.user_name }
@@ -28,5 +29,14 @@ FactoryGirl.define do
     name { Faker::Address.city }
     description { Faker::Lorem.sentence }
     city_id { 1 }
+  end
+
+  factory :event do
+    name { Faker::Address.city }
+    description { Faker::Lorem.sentence }
+    address { Faker::Address.street_address }
+    zip_code { Faker::Address.zip_code }
+    phone { Faker::Number.number(10) }
+    photo_url { Faker::Avatar.image }
   end
 end
