@@ -4,6 +4,5 @@ class AddColumnsToUsers < ActiveRecord::Migration
     add_column :users, :last_name, :string, null: false
     add_column :users, :username, :string, null: false
     add_column :users, :admin, :boolean, default: false
-    add_column :users, :profile_photo, :string
   end
 end
