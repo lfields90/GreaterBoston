@@ -31,7 +31,6 @@ group :development, :test do
   gem 'faker'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
-  gem '-rails'
 end
 
 group :test do

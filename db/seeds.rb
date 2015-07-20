@@ -6,31 +6,31 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Category.create([
-  { name: 'House Party' }, { name: 'Concert' }, { name: 'Block Party' },
-  { name: 'Picnic' }, { name: 'Field Day' }, { name: 'BBQ' },
-  { name: 'Networking' }, { name: 'Meetup' }, { name: 'Yard Sale' }
-])
+state = State.find_or_create_by( name: 'Massachusetts', description: "Amazing place" )
+puts "Created a state."
 
-states = State.create([
-  { name: 'Massachusetts', description: "Amazing place"},
-])
+Category.find_or_create_by( name: 'House Party' )
+Category.find_or_create_by( name: 'Concert' )
+Category.find_or_create_by( name: 'Block Party' )
+Category.find_or_create_by( name: 'Picnic' )
+Category.find_or_create_by( name: 'Field Day' )
+Category.find_or_create_by( name: 'BBQ' )
+Category.find_or_create_by( name: 'Networking' )
+Category.find_or_create_by( name: 'Meetup' )
+Category.find_or_create_by( name: 'Yard Sale' )
+puts "Created catagories."
 
-sleep 1
-cities = City.create([
-  { name: 'Boston', description: 'Awesome!', state_id: states.first },
-  { name: 'Cambridge', description: 'Gorgeous', state_id: states.first },
-  { name: 'Somerville', description: 'Pretty Okay', state_id: states.first },
-  { name: 'Watertown', description: 'We caught em here', state_id: states.first }
-])
+city = City.find_or_create_by( name: 'Boston', description: 'Awesome!', state_id: state.id )
+City.find_or_create_by( name: 'Cambridge', description: 'Gorgeous', state_id: state.id )
+City.find_or_create_by( name: 'Somerville', description: 'Pretty Okay', state_id: state.id )
+City.find_or_create_by( name: 'Watertown', description: 'We caught em here', state_id: state.id )
+puts "Created cities."
 
-sleep 1
-Neighborhood.create([
-  { name: 'Alston', description: 'Nope', city_id: cities.first },
-  { name: 'Backbay', description: 'My Town', city_id: cities.first },
-  { name: 'Brighton', description: 'Nice', city_id: cities.first },
-  { name: 'Chinatown', description: 'My Town', city_id: cities.first },
-  { name: 'Downtown', description: 'My Town', city_id: cities.first },
-  { name: 'Hyde Park', description: 'My Town', city_id: cities.first },
-  { name: 'North End', description: 'My Town', city_id: cities.first },
-])
+Neighborhood.find_or_create_by( name: 'Alston', description: 'Nope', city_id: city.id )
+Neighborhood.find_or_create_by( name: 'Backbay', description: 'My Town', city_id: city.id )
+Neighborhood.find_or_create_by( name: 'Brighton', description: 'Nice', city_id: city.id )
+Neighborhood.find_or_create_by( name: 'Chinatown', description: 'My Town', city_id: city.id )
+Neighborhood.find_or_create_by( name: 'Downtown', description: 'My Town', city_id: city.id )
+Neighborhood.find_or_create_by( name: 'Hyde Park', description: 'My Town', city_id: city.id )
+Neighborhood.find_or_create_by( name: 'North End', description: 'My Town', city_id: city.id )
+puts "Created Neighborhoods."
