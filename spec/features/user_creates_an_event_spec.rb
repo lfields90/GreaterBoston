@@ -12,9 +12,9 @@ feature "User creates an event" do
 
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
-    binding.pry
+
     click_button 'Log in'
-binding.pry
+
     visit neighborhood_events_path(72)
 
     click_link("Add an event")

@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       flash[:success] = "Welcome, #{@user.name}!"
     rescue
-      binding.pry
+      
       flash[:warning] = "There was an error while trying to authenticate you..."
     end
     redirect_to root_path

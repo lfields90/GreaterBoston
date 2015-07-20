@@ -1,8 +1,8 @@
 <div class="event-background">
   <div class="row">
     <div class="small-3 small-centered columns">
-      <h5 class="local-header">Currently in</h5>
-      <h2 class="local-header"> <%= @neighborhood.name %>, MA </h2>
+      <h5 class="local-header top">Currently in</h5>
+      <h2 class="local-header top"> <%= @neighborhood.name %>, MA </h2>
     </div>
   </div>
 
@@ -22,10 +22,13 @@
 
 <div class="current">
   <div class="shaded">
-    <div class="row">
+    <div class="row event-button">
       <div class="small-3 small-centered columns">
           <h5 class="local-header">Events Around</h5>
           <h2 class="local-header"> <%= @neighborhood.name %></h2>
+      </div>
+      <div class="small-3 right columns">
+          <p> <%= link_to "Add an event", new_neighborhood_event_path %> </p>
       </div>
     </div>
   </div>
@@ -56,6 +59,5 @@
     </div>
   </div>
 
-<%= link_to "Add an event", new_neighborhood_event_path %> <br >
 <%= link_to "Neighborhoods in the city", city_neighborhoods_path(@neighborhood.city) %>
 </div>

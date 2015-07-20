@@ -1,13 +1,13 @@
 class EventsController < ApplicationController
   def index
-    binding.pry
+    
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
     @events = @neighborhood.events.order("created_at DESC")
     @featured_events = @events.limit(3)
   end
 
   def new
-    binding.pry
+    
     @event = Event.new
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
   end
@@ -35,7 +35,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    binding.pry
+    
     @event = Event.find(params[:id])
     if @event.update(event_params)
       flash[:success] = "Event updated."
