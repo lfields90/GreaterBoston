@@ -6,8 +6,9 @@
   <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Oswald:700,300" %>
   <%= javascript_include_tag "vendor/modernizr" %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
 </head>
-<body>
+<body onload="initialize()">
 
   <nav class="top-bar">
     <ul class="title-area">
@@ -20,13 +21,13 @@
       <ul class="right">
         <li class="has-form">
           <div class="row collapse">
-            <form>
-              <%= form_tag root_path, :method => "get", id: "search-form" do %>
-              <div class="large-8 small-9 columns">
-                <%= text_field_tag :search, params[:search], required: true, placeholder: "Search" %>
-              </div>
-            <% end %>
-          </form>
+        <!--     <form>
+          <%= form_tag root_path, :method => "get", id: "search-form" do %>
+          <div class="large-8 small-9 columns">
+            <%= text_field_tag :search, params[:search], required: true, placeholder: "Search" %>
+          </div>
+        <% end %>
+                  </form> -->
         </div>
       </li>
         <%- if current_user -%>

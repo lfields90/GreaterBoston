@@ -1,44 +1,70 @@
-<div class="small-12">
-  <p class="landing-photo"> </p>
-</div>
-
+<div class="event-background">
   <div class="row">
     <div class="small-3 small-centered columns">
-      <h5 class="local-header">Currently in</h5>
-      <h2 class="local-header"> <%= @neighborhood.name %>, MA </h2>
+      <h5 class="local-header top">Currently in</h5>
+      <h2 class="local-header top"> <%= @neighborhood.name %>, MA </h2>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row spacer">
     <% 3.times do %>
     <div class="small-4 columns">
-      <p class="news">There will be a map here and event info below</p>
+      <div class="header panel">
+        <div class="sign">
+          <h1>News</h1>
+        </div>
+        <p><span>Dude! I Want that!</span> In addition to their portability and minimal space requirements for storage, the Equalizer bars also simplify workouts by consolidating all exercises to a single machine that requires no weight stack adjustments or significant alterations between them. Each weighs 8 pounds, and the system has been tested to support up to 400 pounds of body weight.</p>
+      </div>
     </div>
     <% end %>
   </div>
+</div>
 
-  <div class="row">
-    <div class="small-3 small-centered columns">
-      <h5 class="local-header">Featured</h5>
-      <h2 class="local-header">This Week</h2>
+<div class="current">
+  <div class="shaded">
+    <div class="row event-button">
+      <div class="small-8 columns">
+          <h5 class="local-header">Events Around</h5>
+          <h2 class="local-header"> <%= @neighborhood.name %></h2>
+      </div>
+      <div class="small-4 columns">
+        <%= link_to "View all events", neighborhood_events_path(@neighborhood), class: "local-header button" %>
+      </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="small-11 small-centered columns">
-      <p class="neighborhood-info">There will be neighborhood info here</p>
+  <div class="row events-around-spacer">
+    <div class="row">
+      <% @featured_events.each do |event| %>
+      <div class="medium-6 large-4 columns">
+        <article class="article-card">
+            <img class="event-topper" src= "<%= event.photo_url %>" />
+          <div class="card-content post-icon">
+            <h4 class="event-header"> <%= link_to event.name, event_path(event) %> </h4>
+            <p> <%= event.description.truncate(200, separator: ' ') %> </p>
+            <p class="center-event-actions">
+              <a href="#"> <%= image_tag("user_add.png", class: "event-actions") %> </a>
+              <!-- if current.user is attending <a href="#"> <%= image_tag("user_check.png", class: "event-actions") %> </a><br > -->
+              <a href="#"> <%= image_tag("share.png", class: "event-actions gimmie-space") %> </a> <br >
+            </p>
+            <div class="medium-4 columns center-me">
+              <p class="event-date"> <%= event.date.strftime("%B") %> </p>
+              <p class="event-day"> <strong><%= event.date.strftime("%d") %></strong> </p>
+            </div>
+            <div class="medium-8 columns">
+              <p class="event-address"> <i class="fa fa-map-marker"></i> <%= event.address %> </p>
+              <p class="event-address"> <%= event.neighborhood.name %>, <%= event.neighborhood.city.state.name %></p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <% end %>
     </div>
   </div>
 
-    <div class="">
-      <span><b>Description:</b> <%= @neighborhood.description %></span><br />
-      <% if @neighborhood.website_url %>
-        <span><b>Website:</b> <%= @neighborhood.website_url %></span><br />
-        <% end %>
-    </div>
     <%= link_to "Edit neighborhood", edit_neighborhood_path %> <br >
     <%= link_to "Delete neighborhood", neighborhood_path(@neighborhood), method: :delete %> <br >
-    <%= link_to "Back to city neighborhoods", city_neighborhoods_path(@city) %> <br >
+    <%= link_to "Neighborhoods in the city", city_neighborhoods_path(@neighborhood.city) %><br >
     <%= link_to "Events in this neighborhood", neighborhood_events_path(@neighborhood) %> <br >
   </div>
 </div>

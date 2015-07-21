@@ -40,7 +40,7 @@
         <article class="article-card">
             <img class="event-topper" src= "<%= event.photo_url %>" />
           <div class="card-content post-icon">
-            <h4 class="event-header"> <%= link_to event.event_header, event_path(event) %> </h4>
+            <h4 class="event-header"> <%= link_to event.name, event_path(event) %> </h4>
             <p> <%= event.description.truncate(200, separator: ' ') %> </p>
             <p class="center-event-actions">
               <a href="#"> <%= image_tag("user_add.png", class: "event-actions") %> </a>
@@ -54,7 +54,6 @@
             <div class="medium-8 columns">
               <p class="event-address"> <i class="fa fa-map-marker"></i> <%= event.address %> </p>
               <p class="event-address"> <%= event.neighborhood.name %>, <%= event.neighborhood.city.state.name %></p>
-              <p> <%= event.zip_code %> </p>
             </div>
           </div>
         </article>

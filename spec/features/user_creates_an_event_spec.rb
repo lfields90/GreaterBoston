@@ -26,8 +26,6 @@ feature "User creates an event" do
     fill_in 'Description', with: "This is going to be a pretty awesome Sale"
     select 'Yard Sale', from: "Category"
     fill_in 'Address', with: "Somewhere in Boston-ish"
-    fill_in 'Zip code', with: "00101"
-    fill_in 'Phone', with: "1001101010"
     fill_in 'Photo url',
       with: "#{Rails.root}/spec/support/images/example_photo.jpg"
     click_button "Add new event"
@@ -39,13 +37,10 @@ feature "User creates an event" do
 
     fill_in 'Name', with: "LaMonte's Yard Sale"
     fill_in 'Description', with: "This is going to be a pretty awesome Sale"
-    fill_in 'Address', with: "Somewhere in Boston-ish"
-    fill_in 'Zip code', with: "00101"
     fill_in 'Photo url',
       with: "#{Rails.root}/spec/support/images/example_photo.jpg"
     click_button "Add new event"
 
-    expect(page).to have_content("Phone is too short ")
-    expect(page).to have_content("Phone can't be blank")
+    expect(page).to have_content("Address can't be blank")
   end
 end

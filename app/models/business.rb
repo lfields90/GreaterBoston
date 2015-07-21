@@ -10,7 +10,6 @@ class Business < ActiveRecord::Base
   validates :name, presence: true
   validates :description, presence: true
   validates :address, presence: true
-  validates :zip_code, presence: true, length: { is: 5 }
   validates :neighborhood_id, presence: true
   validates :phone, presence: true, length: { minimum: 10 }
   validates :user_id, presence: true

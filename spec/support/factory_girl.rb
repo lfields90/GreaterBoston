@@ -33,10 +33,7 @@ FactoryGirl.define do
     name { Faker::Address.city }
     description { Faker::Lorem.sentence }
     address { Faker::Address.street_address }
-    zip_code { Faker::Number.number(5) }
-    phone { Faker::Number.number(10) }
     photo_url { Faker::Avatar.image }
-    website_url { Faker::Internet.url }
   end
 
   factory :category do

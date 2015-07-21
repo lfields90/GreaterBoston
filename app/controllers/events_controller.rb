@@ -56,23 +56,15 @@ class EventsController < ApplicationController
     params.require(:event).permit(
       :name,
       :category_id,
-      :event_header,
       :description,
       :date,
-      :host,
       :address,
       :city,
       :state,
-      :zip_code,
       :neighborhood_id,
-      :phone,
-      :website_url,
       :photo_url,
       :facebook_url,
       :twitter_url,
-      :event_brite_url,
-      :meet_up_url,
-      :category_id,
       :user
     )
   end
