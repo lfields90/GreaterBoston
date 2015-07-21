@@ -3,9 +3,6 @@
     <h1> <%= @event.name %> </h1>
     <div class="panel">
       <span><b>Description:</b> <%= @event.description %></span><br />
-      <% if @event.website_url %>
-        <span><b>Website:</b> <%= @event.website_url %></span><br />
-        <% end %>
     </div>
     <%= link_to "Edit event", edit_event_path %> <br >
     <%= link_to "Delete event", event_path(@event), method: :delete %> <br >
