@@ -2,14 +2,14 @@
 <html>
 <head>
   <title>Greater Boston</title>
-  <%= stylesheet_link_tag 'application', 'main', media: 'all' %>
+  <%= stylesheet_link_tag 'application' %>
   <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Oswald:700,300" %>
   <%= javascript_include_tag "vendor/modernizr" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <nav class="top-bar" data-options="dropdown_autoclose: false">
+  <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
         <h1> <%= link_to 'Greater Boston', root_path %> </h1>
@@ -31,10 +31,10 @@
       </li>
         <%- if current_user -%>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-          <li class="has-dropdown">
+          <li class="has-dropdown" >
             <a href="#"> <%= current_user.username %> </a>
             <ul class="dropdown">
-              <li><a href="/users/<%= current_user.id %>"> <i class="fa fa-user fa-fw"></i> View</a></li>
+              <li><a href="/<%= current_user.id %>"> <i class="fa fa-user fa-fw"></i> View</a></li>
               <li><a href="#"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
               <li><a href="#"><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
               <li class="divider"></li>
@@ -100,6 +100,10 @@
     </div>
   </div>
 </footer>
+
+<script src="/js/vendor/jquery.js"></script>
+<script src="/js/vendor/fastclick.js"></script>
+<script src="/js/foundation.min.js"></script>
 
 </body>
 </html>
