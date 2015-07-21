@@ -23,9 +23,12 @@
 <div class="current">
   <div class="shaded">
     <div class="row event-button">
-      <div class="small-3 small-centered columns">
+      <div class="small-8 columns">
           <h5 class="local-header">Events Around</h5>
           <h2 class="local-header"> <%= @neighborhood.name %></h2>
+      </div>
+      <div class="small-4 columns">
+        <%= link_to "Add an event", new_neighborhood_event_path, class: "local-header button" %>
       </div>
     </div>
   </div>
