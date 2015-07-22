@@ -25,6 +25,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring', '~> 1.3.3'
   gem 'rspec-rails'
+  gem 'pry-rails'
   gem 'capybara'
   gem 'launchy'
   gem 'factory_girl_rails'

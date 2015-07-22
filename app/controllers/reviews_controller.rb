@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @review = Review.new(review_params)
-    @review.user = current_user
+    @review.user_id = current_user.id
     @review.event_id = @event.id
     if @review.save
       flash[:success] = "Review added"

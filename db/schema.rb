@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716174204) do
+ActiveRecord::Schema.define(version: 20150721230845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,15 @@ ActiveRecord::Schema.define(version: 20150716174204) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string   "body",       null: false
+    t.integer  "rating",     null: false
+    t.integer  "event_id",   null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "states", force: :cascade do |t|
     t.string   "name",        null: false
     t.string   "description", null: false
@@ -81,6 +90,8 @@ ActiveRecord::Schema.define(version: 20150716174204) do
     t.string   "username",                                                                                                            null: false
     t.boolean  "admin",                  default: false
     t.string   "profile_photo",          default: "http://rampages.us/williamstw2/wp-content/uploads/sites/2505/2014/10/sprout.jpeg"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

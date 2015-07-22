@@ -26,6 +26,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @reviews = @event.reviews
   end
 
   def edit

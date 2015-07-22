@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
 
+  has_many :reviews
   has_many :attendees
   has_many :users, through: :attendees
   paginates_per 10
