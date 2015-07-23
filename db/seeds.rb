@@ -7,7 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 state = State.find_or_create_by( name: 'Massachusetts', description: "Amazing place" )
-puts "Created a state."
 
 Category.find_or_create_by(name: 'House Party')
 Category.find_or_create_by(name: 'Concert')
@@ -18,13 +17,11 @@ Category.find_or_create_by(name: 'BBQ')
 Category.find_or_create_by(name: 'Networking')
 Category.find_or_create_by(name: 'Meetup')
 Category.find_or_create_by(name: 'YardSale')
-puts "Created catagories."
 
 city = City.find_or_create_by(name: 'Boston', description: 'Awesome!', state_id: state.id)
 City.find_or_create_by(name: 'Cambridge', description: 'Gorgeous', state_id: state.id)
 City.find_or_create_by(name: 'Somerville', description: 'Pretty Okay', state_id: state.id)
 City.find_or_create_by(name: 'Watertown', description: 'We caught em here', state_id: state.id)
-puts"Created cities."
 
 Neighborhood.find_or_create_by(name: 'Alston', description: 'Nope', city_id: city.id)
 Neighborhood.find_or_create_by(name: 'Backbay', description: 'MyTown', city_id: city.id)
@@ -33,4 +30,3 @@ Neighborhood.find_or_create_by(name: 'Chinatown', description: 'MyTown', city_id
 Neighborhood.find_or_create_by(name: 'Downtown', description: 'MyTown', city_id: city.id)
 Neighborhood.find_or_create_by(name: 'HydePark', description: 'MyTown', city_id: city.id)
 Neighborhood.find_or_create_by(name: 'NorthEnd', description: 'MyTown', city_id: city.id)
-puts "Created Neighborhoods."
