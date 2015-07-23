@@ -63,6 +63,7 @@ class EventsController < ApplicationController
       :city,
       :state,
       :neighborhood_id,
+      :featured,
       :photo_url,
       :facebook_url,
       :twitter_url,

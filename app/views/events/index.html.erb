@@ -35,7 +35,7 @@
             <img class="event-topper" src= "<%= event.photo_url %>" />
           <div class="card-content post-icon">
             <h4 class="event-header"> <%= link_to event.name, event_path(event) %> </h4>
-            <p> <%= event.description.truncate(200, separator: ' ') %> </p>
+            <p> <%= event.description.truncate(150, separator: ' ') %> </p>
             <div class="event-info-wrapper clearfix">
               <p class="center-event-actions">
                 <a href="#"> <%= image_tag("user_add.png", class: "event-actions") %> </a>
