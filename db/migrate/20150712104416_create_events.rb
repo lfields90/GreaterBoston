@@ -9,6 +9,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :facebook_url
       t.string :twitter_url
 
+      t.boolean :featured, default: false
       t.belongs_to :user, null: false
       t.belongs_to :neighborhood, null: false
       t.belongs_to :category, null: false

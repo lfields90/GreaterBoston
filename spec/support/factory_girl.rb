@@ -32,6 +32,7 @@ FactoryGirl.define do
   factory :event do
     name { Faker::Address.city }
     description { Faker::Lorem.sentence }
+    date { Faker::Date.forward(60) }
     address { Faker::Address.street_address }
     photo_url { Faker::Avatar.image }
   end

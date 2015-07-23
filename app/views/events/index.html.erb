@@ -1,22 +1,16 @@
 <div class="event-background">
-  <div class="row">
-    <div class="small-3 small-centered columns">
-      <h5 class="local-header top">Currently in</h5>
+  <div class="row event-button">
+    <div class="small-8 columns">
+      <h5 class="local-header top">Featured Events in</h5>
       <h2 class="local-header top"> <%= @neighborhood.name %>, MA </h2>
+    </div>
+    <div class="small-4 columns">
+      <%= link_to "Change Location", city_neighborhoods_path(@neighborhood.city_id), class: "local-header button" %>
     </div>
   </div>
 
-  <div class="row spacer">
-    <% 3.times do %>
-    <div class="small-4 columns">
-      <div class="header panel">
-        <div class="sign">
-          <h1>News</h1>
-        </div>
-        <p><span>Dude! I Want that!</span> In addition to their portability and minimal space requirements for storage, the Equalizer bars also simplify workouts by consolidating all exercises to a single machine that requires no weight stack adjustments or significant alterations between them. Each weighs 8 pounds, and the system has been tested to support up to 400 pounds of body weight.</p>
-      </div>
-    </div>
-    <% end %>
+  <div class="row events-around-spacer">
+    <%= render "events/featured_events" %>
   </div>
 </div>
 
@@ -35,25 +29,27 @@
 
   <div class="row events-around-spacer">
     <div class="row">
-      <% @featured_events.each do |event| %>
+      <% @events.each do |event| %>
       <div class="medium-6 large-4 columns">
         <article class="article-card">
             <img class="event-topper" src= "<%= event.photo_url %>" />
           <div class="card-content post-icon">
             <h4 class="event-header"> <%= link_to event.name, event_path(event) %> </h4>
             <p> <%= event.description.truncate(200, separator: ' ') %> </p>
-            <p class="center-event-actions">
-              <a href="#"> <%= image_tag("user_add.png", class: "event-actions") %> </a>
-              <!-- if current.user is attending <a href="#"> <%= image_tag("user_check.png", class: "event-actions") %> </a><br > -->
-              <a href="#"> <%= image_tag("share.png", class: "event-actions gimmie-space") %> </a> <br >
-            </p>
-            <div class="medium-4 columns center-me">
-              <p class="event-date"> <%= event.date.strftime("%B") %> </p>
-              <p class="event-day"> <strong><%= event.date.strftime("%d") %></strong> </p>
-            </div>
-            <div class="medium-8 columns">
-              <p class="event-address"> <i class="fa fa-map-marker"></i> <%= event.address %> </p>
-              <p class="event-address"> <%= event.neighborhood.name %>, <%= event.neighborhood.city.state.name %></p>
+            <div class="event-info-wrapper clearfix">
+              <p class="center-event-actions">
+                <a href="#"> <%= image_tag("user_add.png", class: "event-actions") %> </a>
+                <!-- if current.user is attending <a href="#"> <%= image_tag("user_check.png", class: "event-actions") %> </a><br > -->
+                <a href="#"> <%= image_tag("share.png", class: "event-actions gimmie-space") %> </a> <br >
+              </p>
+              <div class="medium-4 columns center-me">
+                <p class="event-date"> <%= event.date.strftime("%B") %> </p>
+                <p class="event-day"> <strong><%= event.date.strftime("%d") %></strong> </p>
+              </div>
+              <div class="medium-8 columns">
+                <p class="event-address"> <i class="fa fa-map-marker"></i> <%= event.address %> </p>
+                <p class="event-address"> <%= event.neighborhood.name %>, <%= event.neighborhood.city.state.name %></p>
+              </div>
             </div>
           </div>
         </article>
@@ -62,7 +58,6 @@
     </div>
   </div>
 
-<%= link_to "Add an event", new_neighborhood_event_path %> <br >
 <%= link_to "Back to neighborhood", neighborhood_path(@neighborhood) %> <br >
 <%= link_to "Neighborhoods in the city", city_neighborhoods_path(@neighborhood.city) %>
 

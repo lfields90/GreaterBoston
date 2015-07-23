@@ -17,16 +17,10 @@ class Event < ActiveRecord::Base
   validates :neighborhood_id, presence: true
   validates :category_id, presence: true
 
-  def self.search(search)
-    where("name ILIKE ?
-          OR description ILIKE ?
-          OR address ILIKE ?
-          OR zip_code ILIKE ?
-          OR city ILIKE ?
-          OR state ILIKE ?
-          OR category ILIKE ? ",
-          "%#{search}%", "%#{search}%", "%#{search}%",
-          "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"
-        )
-  end
+  # def self.avg_rating
+  #   num = 0
+  #   @event.reviews.each do |review|
+  #     num += review.rating
+  #   end
+  # end
 end

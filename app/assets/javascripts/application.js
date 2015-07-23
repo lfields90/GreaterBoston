@@ -16,7 +16,10 @@
 //= require_tree .
 
 
-$(function(){ $(document).foundation(); });
+$(function(){
+  $(document).foundation();
+  FastClick.attach(document);
+});
 
 // This example displays an address form, using the autocomplete feature
 // of the Google Places API to help users fill in the information.

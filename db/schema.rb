@@ -32,18 +32,19 @@ ActiveRecord::Schema.define(version: 20150721230845) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string   "name",            null: false
-    t.string   "description",     null: false
-    t.date     "date",            null: false
-    t.string   "address",         null: false
-    t.string   "photo_url",       null: false
+    t.string   "name",                            null: false
+    t.string   "description",                     null: false
+    t.date     "date",                            null: false
+    t.string   "address",                         null: false
+    t.string   "photo_url",                       null: false
     t.string   "facebook_url"
     t.string   "twitter_url"
-    t.integer  "user_id",         null: false
-    t.integer  "neighborhood_id", null: false
-    t.integer  "category_id",     null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.boolean  "featured",        default: false
+    t.integer  "user_id",                         null: false
+    t.integer  "neighborhood_id",                 null: false
+    t.integer  "category_id",                     null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "neighborhoods", force: :cascade do |t|
@@ -89,9 +90,9 @@ ActiveRecord::Schema.define(version: 20150721230845) do
     t.string   "last_name",                                                                                                           null: false
     t.string   "username",                                                                                                            null: false
     t.boolean  "admin",                  default: false
-    t.string   "profile_photo",          default: "http://rampages.us/williamstw2/wp-content/uploads/sites/2505/2014/10/sprout.jpeg"
     t.string   "provider"
     t.string   "uid"
+    t.string   "profile_photo",          default: "http://rampages.us/williamstw2/wp-content/uploads/sites/2505/2014/10/sprout.jpeg"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

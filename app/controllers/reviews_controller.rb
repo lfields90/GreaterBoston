@@ -52,14 +52,14 @@ class ReviewsController < ApplicationController
     if (current_user.id == @review.user_id)
       if @review.update(review_params)
         flash[:success] = "Review updated"
-        redirect_to spot_path(@event)
+        redirect_to event_path(@event)
       else
         flash[:alert] = @review.errors.full_messages.join(".  ")
         render :edit
       end
     else
       flash[:alert] = "You don't have permission to edit that review."
-      redirect_to spot_path(@event)
+      redirect_to event_path(@event)
     end
   end
 
@@ -69,10 +69,10 @@ class ReviewsController < ApplicationController
     if (current_user.id == @review.user_id)
       @review.destroy
       flash[:notice] = "Review deleted"
-      redirect_to spots_path(@event)
+      redirect_to event_path(@event)
     else
       flash[:alert] = "You don't have permission to delete that review."
-      redirect_to spot_path(@event)
+      redirect_to event_path(@event)
     end
   end
 

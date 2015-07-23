@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'profiles/show'
   get 'homes/index'
-  root 'events#index', { neighborhood_id: 6 }
+  root 'neighborhoods#index', { city_id: 1 }
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
   resources :states do
