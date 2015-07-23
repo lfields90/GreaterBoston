@@ -58,10 +58,10 @@ function fillInAddress() {
 
   // Get each component of the address from the place details
   // and fill the corresponding field on the form.
-  for (var i = 0; i < place.address_components.length; i++) {
-    var addressType = place.address_components[i].types[0];
+  for (var i = 0; i < place.addressComponents.length; i++) {
+    var addressType = place.addressComponents[i].types[0];
     if (componentForm[addressType]) {
-      var val = place.address_components[i][componentForm[addressType]];
+      var val = place.addressComponents[i][componentForm[addressType]];
       document.getElementById(addressType).value = val;
     }
   }
