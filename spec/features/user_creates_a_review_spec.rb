@@ -8,7 +8,8 @@ feature "User creates a review" do
     neighborhood = FactoryGirl.create(:neighborhood, city_id: city.id)
     category = FactoryGirl.create(:category)
     user = FactoryGirl.create(:user)
-    event = FactoryGirl.create(:event, user_id: user.id,
+    event = FactoryGirl.create(:event,
+                               user_id: user.id,
                                neighborhood_id: neighborhood.id,
                                category_id: category.id)
 
