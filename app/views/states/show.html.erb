@@ -7,8 +7,10 @@
         <span><b>Website:</b> <%= @state.website_url %></span><br />
         <% end %>
     </div>
-    <%= link_to "Edit state", edit_state_path %> <br >
-    <%= link_to "Delete state", state_path(@state), method: :delete %> <br >
+    <% if current_user.admin? %>
+      <%= link_to "Edit state", edit_state_path %> <br >
+      <%= link_to "Delete state", state_path(@state), method: :delete %> <br >
+    <% end %>
     <%= link_to "Home", states_path %> <br >
     <%= link_to "Cities in this state", state_cities_path(@state) %> <br >
   </div>

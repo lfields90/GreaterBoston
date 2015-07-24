@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+
 state = State.find_or_create_by(name: 'Massachusetts',
                                 description: "Amazing place")
 
