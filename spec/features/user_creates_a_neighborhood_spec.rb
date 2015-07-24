@@ -3,6 +3,7 @@ require 'rails_helper'
 feature "User creates a neighborhood" do
 
   before :each do
+    FactoryGirl.create(:user, admin: true)
     state = FactoryGirl.create(:state)
     city = FactoryGirl.create(:city, state_id: state.id)
     visit city_neighborhoods_path(city.id)

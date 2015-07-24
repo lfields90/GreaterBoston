@@ -10,7 +10,7 @@
 </head>
 <body onload="initialize()">
 
-  <nav class="top-bar">
+  <nav class="top-bar" data-topbar>
     <ul class="title-area">
       <li class="name">
         <h1> <%= link_to 'Greater Boston', root_path %> </h1>
@@ -30,16 +30,18 @@
                     </form> -->
           </div>
         </li>
-        <%- if current_user && current_user.admin? -%>
+        <%- if current_user -%>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
           <li class="has-dropdown" >
             <a href="#"> <%= current_user.username %> </a>
             <ul class="dropdown" >
-              <li><a href="/"> <i class="fa fa-user fa-fw"></i> View</a></li>
+              <li><a href="/users/current_user.id"> <i class="fa fa-user fa-fw"></i> View</a></li>
               <li><a href="#"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
               <li><a href="#"><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
               <li class="divider"></li>
-              <li><a href="#"><i class="i"></i> Make admin</a></li>
+              <% if current_user.admin? %>
+                <li><a href="#"><i class="i"></i> Admin</a></li>
+              <% end %>
             </ul>
           </li>
         <%- else -%>
