@@ -37,7 +37,7 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    if (current_user.id == @review.user_id) || current_user.admin?
+    if (current_user.id == @event.user_id) || current_user.admin?
       if @event.update(event_params)
         flash[:success] = "Event updated."
         redirect_to event_path(@event)
