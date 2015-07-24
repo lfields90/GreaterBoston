@@ -47,7 +47,7 @@ Neighborhood.find_or_create_by(name: 'Chinatown',
 Neighborhood.find_or_create_by(name: 'Downtown',
                                description: 'MyTown',
                                city_id: city.id)
-Neighborhood.find_or_create_by(name: 'HydePark',
+Neighborhood.find_or_create_by(name: 'Hyde Park',
                                description: 'MyTown',
                                city_id: city.id)
 Neighborhood.find_or_create_by(name: 'NorthEnd',

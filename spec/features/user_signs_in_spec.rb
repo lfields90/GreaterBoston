@@ -5,6 +5,12 @@ feature 'user signs in', %Q{
   I want to sign in
   So that I may regain access to my account
 } do
+
+  before :each do
+    state = FactoryGirl.create(:state)
+    FactoryGirl.create(:city, id: 1, state_id: state.id)
+  end
+
   scenario 'specify valid credentials' do
     user = FactoryGirl.create(:user)
 

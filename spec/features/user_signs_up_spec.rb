@@ -11,7 +11,11 @@ feature 'user registers', %Q{
   #   password, and password confirmation
   # * If I don't specify the required information, I am presented with
   #   an error message
-
+  before :each do
+    state = FactoryGirl.create(:state)
+    FactoryGirl.create(:city, id: 1, state_id: state.id)
+  end
+  
   scenario 'provide valid registration information' do
     visit new_user_registration_path
 

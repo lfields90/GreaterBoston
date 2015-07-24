@@ -5,7 +5,8 @@ feature "User creates an event" do
   before :each do
     user = FactoryGirl.create(:user)
     state = FactoryGirl.create(:state)
-    city = FactoryGirl.create(:city, state_id: state.id)
+    city = FactoryGirl.create(:city, id: 1, state_id: state.id)
+    FactoryGirl.create(:category, name: "Yard Sale")
     neighborhood = FactoryGirl.create(:neighborhood, city_id: city.id)
     visit new_user_session_path
 
@@ -24,7 +25,8 @@ feature "User creates an event" do
     fill_in 'Name', with: "LaMonte's Yard Sale"
     select 'Yard Sale', from: "Category"
     fill_in 'Description', with: "This is going to be a pretty awesome Sale"
-    fill_in 'Address', with: "Somewhere in Boston-ish"
+    fill_in 'Date', with: '2015-08-31T20:00:00'
+    fill_in 'event[address]', with: "33 Harrison Avenue, Boston, MA"
     fill_in 'Photo url',
       with: "#{Rails.root}/spec/support/images/example_photo.jpg"
     click_button "Add new event"

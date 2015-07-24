@@ -21,21 +21,21 @@
       <ul class="right">
         <li class="has-form">
           <div class="row collapse">
-        <!--     <form>
-          <%= form_tag root_path, :method => "get", id: "search-form" do %>
-          <div class="large-8 small-9 columns">
-            <%= text_field_tag :search, params[:search], required: true, placeholder: "Search" %>
+          <!--     <form>
+            <%= form_tag root_path, :method => "get", id: "search-form" do %>
+            <div class="large-8 small-9 columns">
+              <%= text_field_tag :search, params[:search], required: true, placeholder: "Search" %>
+            </div>
+          <% end %>
+                    </form> -->
           </div>
-        <% end %>
-                  </form> -->
-        </div>
-      </li>
+        </li>
         <%- if current_user -%>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-          <li class="has-dropdown" >
+          <li class="has-dropdown">
             <a href="#"> <%= current_user.username %> </a>
             <ul class="dropdown">
-              <li><a href="/<%= current_user.id %>"> <i class="fa fa-user fa-fw"></i> View</a></li>
+              <li><a href="/"> <i class="fa fa-user fa-fw"></i> View</a></li>
               <li><a href="#"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
               <li><a href="#"><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
               <li class="divider"></li>
@@ -65,8 +65,6 @@
 
       <%= yield %>
 
-  <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag 'main' %>
   <%= yield :extra_footer %>
   <footer class="footer">
   <div class="row">
@@ -102,8 +100,7 @@
   </div>
 </footer>
 
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/vendor/fastclick.js"></script>
-
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'main' %>
 </body>
 </html>
