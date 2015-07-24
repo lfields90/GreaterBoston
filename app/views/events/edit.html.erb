@@ -7,8 +7,10 @@
         <%= f.text_field :name %>
 
         <% if current_user.admin? %>
-          <%= f.label :featured %>
-          <%= f.radio_button :featured %>
+          <%= f.radio_button :featured, true %>
+          <%= f.label :featured, value: "True" %>
+          <%= f.radio_button :featured, false %>
+          <%= f.label :featured, value: "False" %>
         <% end %>
 
         <%= f.label :category_id %>

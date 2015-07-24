@@ -2,13 +2,12 @@ class EventsController < ApplicationController
   def index
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
     @events = @neighborhood.events.order("date DESC")
-    @featured_events = @events.where(featured: true).limit(3)
+    @featured_events = @events.where(featured: true)
   end
 
   def new
     @event = Event.new
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
-
   end
 
   def create
@@ -33,7 +32,6 @@ class EventsController < ApplicationController
   def edit
     @event = Event.find(params[:id])
     @user = current_user
-    # @featured = [true, false]
     redirect_to event_path(@event) unless @user.id == @event.user_id || @user.admin?
   end
 
