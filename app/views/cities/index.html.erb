@@ -7,9 +7,9 @@
           <span <%= image_tag("Greater.png") %> ></span>
         </div>
         <div class="info">
-          <h4 class="text-center"> <%= city.name %> </h4>
+          <h4 class="text-center"> <%= link_to city.name, city_path(city) %> </h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem architecto perferendis quas aperiam debitis dolor soluta!</p>
-          <a href="<%= city_path(city) %>" class="button custom-button">Enter</a>
+          <a href="<%= city_neighborhoods_path(city) %>" class="button custom-button">Enter</a>
         </div>
       </div>
     </div>

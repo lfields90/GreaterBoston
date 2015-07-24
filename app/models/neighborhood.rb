@@ -1,7 +1,7 @@
 class Neighborhood < ActiveRecord::Base
   belongs_to :city
-  has_many :businesses
-  has_many :events
+  has_many :businesses, dependent: :destroy
+  has_many :events, dependent: :destroy
   has_many :elected_officials
   has_many :neighborhood_officials, through: :elected_officials
   paginates_per 10

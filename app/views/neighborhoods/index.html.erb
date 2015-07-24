@@ -1,22 +1,24 @@
-<div class="row">
-  <center><h1>Neighborhoods in <%= @city.name%></h1></center>
-  <% @neighborhoods.each do |neighborhood| %>
-    <div class="medium-4 small-6 columns">
-      <div class="box">
-        <div class="box-icon">
-          <span <%= image_tag("Greater.png") %> ></span>
-        </div>
-        <div class="info">
-          <h4 class="text-center"> <%= neighborhood.name %> </h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem architecto perferendis quas aperiam debitis dolor soluta!</p>
-          <a href="<%= neighborhood_path(neighborhood) %>" class="button custom-button">Enter</a>
+<div class="neighborhood-index">
+  <div class="row">
+    <center><h1>Neighborhoods in <%= @city.name%></h1></center>
+    <% @neighborhoods.each do |neighborhood| %>
+      <div class="medium-4 small-6 columns">
+        <div class="box">
+          <div class="box-icon">
+            <span <%= image_tag("Greater.png") %> ></span>
+          </div>
+          <div class="info">
+            <h4 class="text-center"> <%= neighborhood.name %> </h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem architecto perferendis quas aperiam debitis dolor soluta!</p>
+            <a href="<%= neighborhood_path(neighborhood) %>" class="button custom-button">Enter</a>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
-<% if current_user && current_user.admin? %>
-  <%= link_to "Add a neighborhood", new_city_neighborhood_path %><br >
-<% end %>
-<%= link_to "View cities", state_cities_path(@city.state) %>
+  <% if current_user && current_user.admin? %>
+    <%= link_to "Add a neighborhood", new_city_neighborhood_path %><br >
+  <% end %>
+  <%= link_to "View cities", state_cities_path(@city.state) %>
+</div>

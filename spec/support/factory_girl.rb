@@ -22,6 +22,7 @@ FactoryGirl.define do
   factory :city do
     name { Faker::Address.city }
     description { Faker::Lorem.sentence }
+    state
   end
 
   factory :neighborhood do

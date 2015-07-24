@@ -7,6 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
+user = User.new(first_name: "Addy",
+                last_name: "Minn",
+                username: "Admin",
+                email: "test@test.com")
+user.password = "asdfasdf"
+user.password_confirmation = "asdfasdf"
+user.save
 
 state = State.find_or_create_by(name: 'Massachusetts',
                                 description: "Amazing place")

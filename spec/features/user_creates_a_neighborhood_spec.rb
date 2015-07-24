@@ -3,10 +3,21 @@ require 'rails_helper'
 feature "User creates a neighborhood" do
 
   before :each do
-    FactoryGirl.create(:user, admin: true)
+    user = FactoryGirl.create(:user, admin: true)
     state = FactoryGirl.create(:state)
-    city = FactoryGirl.create(:city, state_id: state.id)
+    city = FactoryGirl.create(:city, state_id: state.id, id: 1)
+    visit new_user_session_path
+
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+
+    click_button 'Log in'
+
+    expect(page).to have_content('Signed in successfully')
+    expect(page).to have_content('Sign Out')
+
     visit city_neighborhoods_path(city.id)
+
     click_link "Add a neighborhood"
   end
 
