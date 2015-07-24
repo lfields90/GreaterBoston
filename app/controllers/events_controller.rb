@@ -32,12 +32,12 @@ class EventsController < ApplicationController
   def edit
     @event = Event.find(params[:id])
     @user = current_user
-    redirect_to event_path(@event) unless @user.id == @event.user_id || @user.admin?
+    redirect_to event_path(@event) unless current_user && (@user.id == @event.user_id) || @user.admin?
   end
 
   def update
     @event = Event.find(params[:id])
-    if (current_user.id == @event.user_id) || current_user.admin?
+    if (current_user) && (current_user) && (current_user.id == @event.user_id) || current_user.admin?
       if @event.update(event_params)
         flash[:success] = "Event updated."
         redirect_to event_path(@event)
@@ -53,7 +53,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
-    if (current_user.id == @event.user_id) || current_user.admin?
+    if (current_user) && (current_user.id == @event.user_id) || current_user.admin?
       @review.destroy
       flash[:notice] = "Review deleted"
       redirect_to event_path(@event)
@@ -61,8 +61,6 @@ class EventsController < ApplicationController
       flash[:alert] = "You don't have permission to delete that review."
       redirect_to event_path(@event)
     end
-
-
     @event.destroy
     flash[:success] = "Event deleted"
     redirect_to neighborhood_events_path(@event.neighborhood)

@@ -14,14 +14,15 @@ class ReviewsController < ApplicationController
       flash[:alert] = "You can't review an event mulitple times."
       redirect_to event_path(@event)
     end
-    if @review.save
-      flash[:success] = "Review added"
-      redirect_to event_path(@event)
-    else
-      flash[:alert] = @review.errors.full_messages.join(".  ")
-      render :new
+    if (current_user) == @event.user_id || current_user.admin?
+      if @review.save
+        flash[:success] = "Review added"
+        redirect_to event_path(@event)
+      else
+        flash[:alert] = @review.errors.full_messages.join(".  ")
+        render :new
+      end
     end
-  end
 
   def upvote
     @review = Review.find(params[:id])

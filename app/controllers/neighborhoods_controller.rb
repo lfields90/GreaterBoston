@@ -14,7 +14,7 @@ class NeighborhoodsController < ApplicationController
     @city = City.find(params[:city_id])
     @neighborhood = Neighborhood.new(neighborhood_params)
     @neighborhood.city = @city
-    if current_user.admin?
+    if current_user && current_user.admin?
       if @neighborhood.save
         flash[:success] = "Neighborhood added."
         redirect_to city_neighborhoods_path(@city)
@@ -43,7 +43,7 @@ class NeighborhoodsController < ApplicationController
   def update
     @neighborhood = Neighborhood.find(params[:id])
     @city = @neighborhood.city
-    if current_user.admin?
+    if current_user && current_user.admin?
       if @neighborhood.update(neighborhood_params)
         flash[:success] = "Neighborhood updated."
         redirect_to neighborhood_path(@neighborhood)
@@ -60,7 +60,7 @@ class NeighborhoodsController < ApplicationController
   def destroy
     @neighborhood = Neighborhood.find(params[:id])
     @city = @neighborhood.city
-    if current_user.admin?
+    if current_user && current_user.admin?
       @neighborhood.destroy
       flash[:success] = "Neighborhood deleted"
       redirect_to city_neighborhoods_path(@city)

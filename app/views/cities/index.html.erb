@@ -16,7 +16,7 @@
   <% end %>
 </div>
 
-<% if current_user.admin? %>
+<% if current_user && current_user.admin? %>
   <%= link_to "Add a city", new_state_city_path %> <br >
 <% end %>
 <%= link_to "View states", states_path %>

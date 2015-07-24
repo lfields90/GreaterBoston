@@ -7,7 +7,7 @@
         <span><b>Website:</b> <%= @state.website_url %></span><br />
         <% end %>
     </div>
-    <% if current_user.admin? %>
+    <% if current_user && current_user.admin? %>
       <%= link_to "Edit state", edit_state_path %> <br >
       <%= link_to "Delete state", state_path(@state), method: :delete %> <br >
     <% end %>

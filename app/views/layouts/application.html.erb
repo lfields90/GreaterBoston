@@ -30,7 +30,7 @@
                     </form> -->
           </div>
         </li>
-        <%- if current_user -%>
+        <%- if current_user && current_user.admin? -%>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
           <li class="has-dropdown" >
             <a href="#"> <%= current_user.username %> </a>

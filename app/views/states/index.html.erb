@@ -16,7 +16,7 @@
   <% end %>
 </div>
 
-<% if current_user.admin? %>
+<% if if current_user && current_user.admin? %>
   <%= link_to "Add a state", new_state_path %> <br >
 <% end %>
 <%= link_to "Home", root_path %>
