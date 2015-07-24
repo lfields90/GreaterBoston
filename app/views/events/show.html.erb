@@ -12,22 +12,26 @@
          <% @avg_rating = (num) / (@reviews.count) %>  <!-- trying to round to tens place .round(1) -->
         <b>Avg Rating: <%= @avg_rating %></b><br >
       <% end %>
-      <span><b>Description:</b> <%= @event.description %></span><br />
+      <span><b>Description:</b> <%= @event.description %></span><br >
       <b>Reviews:</b>
       <% @reviews.each do |review| %>
         <div class="row">
           <div class="small-8 panel">
             <%= review.user.first_name %>: <%= review.body %><br >
-            <%= link_to "Edit review", edit_event_review_path(@event, review) %> <br >
-            <%= link_to "Delete review", event_review_path(@event, review), method: :delete %> <br >
+            <% if current_user == review.user || current_user.admin? %>
+              <%= link_to "Edit review", edit_event_review_path(@event, review) %> <br >
+              <%= link_to "Delete review", event_review_path(@event, review), method: :delete %> <br >
+            <% end %>
           </div>
         </div>
       <% end %>
     </div>
     </div>
     <%= link_to "Add a review", new_event_review_path(@event) %> <br >
-    <%= link_to "Edit event", edit_event_path %> <br >
-    <%= link_to "Delete event", event_path(@event), method: :delete %> <br >
+    <% if current_user == @event.user || current_user.admin? %>
+      <%= link_to "Edit event", edit_event_path %> <br >
+      <%= link_to "Delete event", event_path(@event), method: :delete %> <br >
+    <% end %>
     <%= link_to "Back to neighborhood events", neighborhood_events_path(@event.neighborhood) %> <br >
   </div>
 </div>

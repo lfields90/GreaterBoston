@@ -16,5 +16,7 @@
   <% end %>
 </div>
 
-<%= link_to "Add a neighborhood", new_city_neighborhood_path %> <br >
+<% if current_user.admin? %>
+  <%= link_to "Add a neighborhood", new_city_neighborhood_path %><br >
+<% end %>
 <%= link_to "View cities", state_cities_path(@city.state) %>

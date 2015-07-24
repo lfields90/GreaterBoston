@@ -31,21 +31,38 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    @user = current_user
+    redirect_to event_path(@event) unless @user.id == @event.user || @user.admin?
   end
 
   def update
     @event = Event.find(params[:id])
-    if @event.update(event_params)
-      flash[:success] = "Event updated."
-      redirect_to event_path(@event)
+    if (current_user.id == @review.user_id) || current_user.admin?
+      if @event.update(event_params)
+        flash[:success] = "Event updated."
+        redirect_to event_path(@event)
+      else
+        flash[:alert] = @event.errors.full_messages.join(".  ")
+        render :edit
+      end
     else
-      flash[:alert] = @event.errors.full_messages.join(".  ")
-      render :edit
+      flash[:alert] = "You don't have permission to edit that review."
+      redirect_to event_path(@event)
     end
   end
 
   def destroy
     @event = Event.find(params[:id])
+    if (current_user.id == @event.user) || current_user.admin?
+      @review.destroy
+      flash[:notice] = "Review deleted"
+      redirect_to event_path(@event)
+    else
+      flash[:alert] = "You don't have permission to delete that review."
+      redirect_to event_path(@event)
+    end
+
+
     @event.destroy
     flash[:success] = "Event deleted"
     redirect_to neighborhood_events_path(@event.neighborhood)

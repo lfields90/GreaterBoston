@@ -8,11 +8,11 @@ Rails.application.routes.draw do
     resources :cities, only: [:new, :create, :index]
   end
 
-  resources :cities, except: [:new, :create] do
+  resources :cities, except: [:new, :create, :index] do
     resources :neighborhoods, only: [:new, :create, :index]
   end
 
-  resources :neighborhoods, except: [:new, :create] do
+  resources :neighborhoods, except: [:new, :create, :index] do
     resources :events, only: [:new, :create, :index]
     resources :businesses, only: [:new, :create, :index]
   end
