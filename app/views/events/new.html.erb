@@ -6,6 +6,14 @@
         <%= f.label :name %>
         <%= f.text_field :name %>
 
+        <% if current_user.admin? %>
+          <%= f.radio_button(:featured, true) %>
+          <%= f.label(:featured, true, value: true) %>
+
+          <%= f.radio_button(:featured, false) %>
+          <%= f.label(:featured, false, value: false) %>
+        <% end %>
+
         <%= f.label :category_id %>
         <%= f.select :category_id, Category.all.map { |category| [category.name, category.id] } %>
 
