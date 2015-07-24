@@ -3,6 +3,7 @@ require 'rails_helper'
 feature "User creates a city" do
 
   before :each do
+    user = FactoryGirl.create(:user, admin: true)
     state = FactoryGirl.create(:state)
     visit state_cities_path(state.id)
     click_link "Add a city"
