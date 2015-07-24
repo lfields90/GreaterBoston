@@ -2,12 +2,13 @@
 <html>
 <head>
   <title>Greater Boston</title>
-  <%= stylesheet_link_tag 'application', 'main', media: 'all' %>
+  <%= stylesheet_link_tag 'application' %>
   <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Oswald:700,300" %>
   <%= javascript_include_tag "vendor/modernizr" %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
 </head>
-<body>
+<body onload="initialize()">
 
   <nav class="top-bar">
     <ul class="title-area">
@@ -20,18 +21,27 @@
       <ul class="right">
         <li class="has-form">
           <div class="row collapse">
-            <form>
-              <%= form_tag root_path, :method => "get", id: "search-form" do %>
-              <div class="large-8 small-9 columns">
-                <%= text_field_tag :search, params[:search], required: true, placeholder: "Search" %>
-              </div>
-            <% end %>
-          </form>
-        </div>
-      </li>
+          <!--     <form>
+            <%= form_tag root_path, :method => "get", id: "search-form" do %>
+            <div class="large-8 small-9 columns">
+              <%= text_field_tag :search, params[:search], required: true, placeholder: "Search" %>
+            </div>
+          <% end %>
+                    </form> -->
+          </div>
+        </li>
         <%- if current_user -%>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-          <li><%= link_to current_user.username, user_path(current_user) %></li>
+          <li class="has-dropdown">
+            <a href="#"> <%= current_user.username %> </a>
+            <ul class="dropdown">
+              <li><a href="/"> <i class="fa fa-user fa-fw"></i> View</a></li>
+              <li><a href="#"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+              <li><a href="#"><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
+              <li class="divider"></li>
+              <li><a href="#"><i class="i"></i> Make admin</a></li>
+            </ul>
+          </li>
         <%- else -%>
           <li><%= link_to 'Facebook', '/auth/facebook' %></li>
           <li><%= link_to 'Twitter', '/auth/twitter' %></li>
@@ -53,14 +63,8 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="column">
       <%= yield %>
-    </div>
-  </div>
 
-  <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag 'main' %>
   <%= yield :extra_footer %>
   <footer class="footer">
   <div class="row">
@@ -84,8 +88,8 @@
       </ul>
     </div>
     <div class="small-12 medium-12 large-3 columns">
-      <p class="about">Blah Blah</p>
-      <p class="about subheader">Blah blah blah blah</p>
+      <p class="about">Together</p>
+      <p class="about subheader">Creating a Greater Boston</p>
       <ul class="inline-list social">
         <a href="https://www.facebook.com/mygreaterboston?ref=hl" target="_blank"><i class="fa fa-facebook-square"></i></a>
         <a href="https://twitter.com/MyGreaterBoston" target="_blank"><i class="fa fa-twitter-square"></i></a>
@@ -96,5 +100,7 @@
   </div>
 </footer>
 
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'main' %>
 </body>
 </html>

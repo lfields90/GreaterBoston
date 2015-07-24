@@ -25,6 +25,8 @@ class NeighborhoodsController < ApplicationController
   def show
     @neighborhood = Neighborhood.find(params[:id])
     @city = @neighborhood.city
+    @events = @neighborhood.events.order("created_at DESC")
+    @featured_events = @events.limit(3)
   end
 
   def edit

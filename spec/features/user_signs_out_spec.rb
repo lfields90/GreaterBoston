@@ -9,7 +9,11 @@ feature 'user signs out', %Q{
   # * If I'm signed in, i have an option to sign out
   # * When I opt to sign out, I get a confirmation that my identity has been
   #   forgotten on the machine I'm using
-
+  before :each do
+    state = FactoryGirl.create(:state)
+    FactoryGirl.create(:city, id: 1, state_id: state.id)
+  end
+  
   scenario 'authenticated user signs out' do
     user = FactoryGirl.create(:user)
 

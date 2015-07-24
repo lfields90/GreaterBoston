@@ -5,3 +5,51 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+state = State.find_or_create_by(name: 'Massachusetts',
+                                description: "Amazing place")
+
+Category.find_or_create_by(name: 'House Party')
+Category.find_or_create_by(name: 'Concert')
+Category.find_or_create_by(name: 'BlockParty')
+Category.find_or_create_by(name: 'Picnic')
+Category.find_or_create_by(name: 'FieldDay')
+Category.find_or_create_by(name: 'BBQ')
+Category.find_or_create_by(name: 'Networking')
+Category.find_or_create_by(name: 'Meetup')
+Category.find_or_create_by(name: 'YardSale')
+
+city = City.find_or_create_by(name: 'Boston',
+                              description: 'Awesome!',
+                              state_id: state.id)
+City.find_or_create_by(name: 'Cambridge',
+                       description: 'Gorgeous',
+                       state_id: state.id)
+City.find_or_create_by(name: 'Somerville',
+                       description: 'Pretty Okay',
+                       state_id: state.id)
+City.find_or_create_by(name: 'Watertown',
+                       description: 'We caught em here',
+                       state_id: state.id)
+
+Neighborhood.find_or_create_by(name: 'Alston',
+                               description: 'Nope',
+                               city_id: city.id)
+Neighborhood.find_or_create_by(name: 'Backbay',
+                               description: 'MyTown',
+                               city_id: city.id)
+Neighborhood.find_or_create_by(name: 'Brighton',
+                               description: 'Nice',
+                               city_id: city.id)
+Neighborhood.find_or_create_by(name: 'Chinatown',
+                               description: 'MyTown',
+                               city_id: city.id)
+Neighborhood.find_or_create_by(name: 'Downtown',
+                               description: 'MyTown',
+                               city_id: city.id)
+Neighborhood.find_or_create_by(name: 'Hyde Park',
+                               description: 'MyTown',
+                               city_id: city.id)
+Neighborhood.find_or_create_by(name: 'NorthEnd',
+                               description: 'MyTown',
+                               city_id: city.id)

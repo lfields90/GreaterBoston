@@ -1,0 +1,28 @@
+<div class="row">
+  <% @featured_events.each do |event| %>
+    <div class="medium-6 large-4 columns">
+      <article class="article-card">
+          <img class="event-topper" src= "<%= event.photo_url %>" />
+        <div class="card-content post-icon">
+          <h4 class="event-header"> <%= link_to event.name, event_path(event) %> </h4>
+          <p> <%= event.description.truncate(150, separator: ' ') %> </p>
+          <div class="event-info-wrapper clearfix">
+            <p class="center-event-actions">
+              <a href="#"> <%= image_tag("user_add.png", class: "event-actions") %> </a>
+              <!-- if current.user is attending <a href="#"> <%= image_tag("user_check.png", class: "event-actions") %> </a><br > -->
+              <a href="#"> <%= image_tag("share.png", class: "event-actions gimmie-space") %> </a> <br >
+            </p>
+            <div class="medium-4 columns center-me">
+              <p class="event-date"> <%= event.date.strftime("%B") %> </p>
+              <p class="event-day"> <strong><%= event.date.strftime("%d") %></strong> </p>
+            </div>
+            <div class="medium-8 columns">
+              <p class="event-address"> <i class="fa fa-map-marker"></i> <%= event.address %> </p>
+              <p class="event-address"> <%= event.neighborhood.name %>, <%= event.neighborhood.city.state.name %></p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  <% end %>
+</div>

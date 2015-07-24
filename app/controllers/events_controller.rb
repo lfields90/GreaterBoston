@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
   def index
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
-    @events = @neighborhood.events.order("created_at DESC").page params[:page]
+    @events = @neighborhood.events.order("date DESC")
+    @featured_events = @events.limit(3)
   end
 
   def new
@@ -25,6 +26,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @reviews = @event.reviews
   end
 
   def edit
@@ -46,7 +48,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
     flash[:success] = "Event deleted"
-    redirect_to events_path
+    redirect_to neighborhood_events_path(@event.neighborhood)
   end
 
   protected
@@ -54,20 +56,17 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(
       :name,
+      :category_id,
       :description,
+      :date,
       :address,
       :city,
       :state,
-      :zip_code,
       :neighborhood_id,
-      :phone,
-      :website_url,
+      :featured,
       :photo_url,
       :facebook_url,
       :twitter_url,
-      :event_brite_url,
-      :meet_up_url,
-      :category_id,
       :user
     )
   end

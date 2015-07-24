@@ -1,44 +1,36 @@
-<div class="large-12">
-  <h1>New Event</h1>
-  <div class="panel">
-    <%= form_for [@neighborhood, @event] do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+<div class"row">
+  <div class="small-10 small-centered columns">
+    <h1>New Event</h1>
+    <div class="panel">
+      <%= form_for [@neighborhood, @event] do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
 
-      <%= f.label :category_id %>
-      <%= f.select :category_id, Category.all.map { |category| [category.name, category.id] } %>
+        <%= f.label :category_id %>
+        <%= f.select :category_id, Category.all.map { |category| [category.name, category.id] } %>
 
-      <%= f.label :description %>
-      <%= f.text_area :description %>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
 
-      <%= f.label :address %>
-      <%= f.text_field :address %>
+        <%= f.label :date %>
+        <%= f.datetime_local_field :date %>
 
-      <%= f.label :zip_code %>
-      <%= f.text_field :zip_code %>
+        <div id="locationField">
+          <label for="address">Address</label>
+          <input id="autocomplete" onFocus="geolocate()" type="text" name="event[address]"></input>
+        </div>
 
-      <%= f.label :phone %>
-      <%= f.text_field :phone %>
+        <%= f.label :photo_url %>
+        <%= f.url_field :photo_url %>
 
-      <%= f.label :photo_url %>
-      <%= f.url_field :photo_url %>
+        <%= f.label :facebook_url %>
+        <%= f.url_field :facebook_url %>
 
-      <%= f.label :website_url %>
-      <%= f.url_field :website_url %>
+        <%= f.label :twitter_url %>
+        <%= f.url_field :twitter_url %>
 
-      <%= f.label :facebook_url %>
-      <%= f.url_field :facebook_url %>
-
-      <%= f.label :twitter_url %>
-      <%= f.url_field :twitter_url %>
-
-      <%= f.label :meet_up_url %>
-      <%= f.url_field :meet_up_url %>
-
-      <%= f.label :event_brite_url %>
-      <%= f.url_field :event_brite_url %>
-
-      <%= f.submit "Add new event" %>
-    <%- end -%>
+        <%= f.submit "Add new event" %>
+      <%- end -%>
+    </div>
   </div>
 </div>

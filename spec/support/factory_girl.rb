@@ -22,23 +22,19 @@ FactoryGirl.define do
   factory :city do
     name { Faker::Address.city }
     description { Faker::Lorem.sentence }
-    state_id { 1 }
   end
 
   factory :neighborhood do
     name { Faker::Address.city }
     description { Faker::Lorem.sentence }
-    city_id { 1 }
   end
 
   factory :event do
     name { Faker::Address.city }
     description { Faker::Lorem.sentence }
+    date { Faker::Date.forward(60) }
     address { Faker::Address.street_address }
-    zip_code { Faker::Number.number(5) }
-    phone { Faker::Number.number(10) }
     photo_url { Faker::Avatar.image }
-    website_url { Faker::Internet.url }
   end
 
   factory :category do
