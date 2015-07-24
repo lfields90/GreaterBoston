@@ -10,6 +10,10 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     @review.event_id = @event.id
+    if @event.reviews.include?(current_user.id)
+      flash[:alert] = "You can't review an event mulitple times."
+      redirect_to event_path(@event)
+    end
     if @review.save
       flash[:success] = "Review added"
       redirect_to event_path(@event)
