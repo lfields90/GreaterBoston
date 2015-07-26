@@ -10,6 +10,7 @@
 user = User.new(first_name: "Addy",
                 last_name: "Minn",
                 username: "Admin",
+                admin: true,
                 email: "test@test.com")
 user.password = "asdfasdf"
 user.password_confirmation = "asdfasdf"
