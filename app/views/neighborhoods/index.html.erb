@@ -1,6 +1,6 @@
 <div class="neighborhood-index">
   <div class="row">
-    <center><h1>Neighborhoods in <%= @city.name%></h1></center>
+    <center><h1 class="neighborhood-text">Neighborhoods in <%= @city.name%></h1></center>
     <% @neighborhoods.each do |neighborhood| %>
       <div class="medium-4 small-6 columns">
         <div class="box">
@@ -8,7 +8,7 @@
             <span <%= image_tag("Greater.png") %> ></span>
           </div>
           <div class="info">
-            <h4 class="text-center"> <%= neighborhood.name %> </h4>
+            <h4 class="text-center"> <%= link_to neighborhood.name, edit_neighborhood_path(neighborhood.id) %> </h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem architecto perferendis quas aperiam debitis dolor soluta!</p>
             <a href="<%= neighborhood_path(neighborhood) %>" class="button custom-button">Enter</a>
           </div>
