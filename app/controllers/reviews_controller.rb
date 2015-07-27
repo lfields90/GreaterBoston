@@ -23,6 +23,7 @@ class ReviewsController < ApplicationController
         render :new
       end
     end
+  end
 
   def upvote
     @review = Review.find(params[:id])
