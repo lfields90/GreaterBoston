@@ -5,7 +5,7 @@ feature "User creates a city" do
   before :each do
     user = FactoryGirl.create(:user, admin: true)
     state = FactoryGirl.create(:state)
-    FactoryGirl.create(:city, state_id: state.id, id: 1)
+    FactoryGirl.create(:city, state_id: state.id) # id: 1
     visit new_user_session_path
 
     fill_in 'Email', with: user.email
