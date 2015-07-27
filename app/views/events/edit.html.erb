@@ -1,32 +1,43 @@
-<div class="large-12">
-  <h1>New Event</h1>
-  <div class="panel">
-    <%= form_for [@neighborhood, @event] do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+<div class"row">
+  <div class="small-10 small-centered columns">
+    <h1>New Event</h1>
+    <div class="panel">
+      <%= form_for [@neighborhood, @event] do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
 
-      <%= f.label :category_id %>
-      <%= f.select :category_id, Category.all.map { |category| [category.name, category.id] } %>
+        <% if current_user && current_user.admin? %>
+          <%= f.radio_button :featured, true %>
+          <%= f.label :featured, value: "True" %>
+          <%= f.radio_button :featured, false %>
+          <%= f.label :featured, value: "False" %>
+        <% end %>
 
-      <%= f.label :description %>
-      <%= f.text_area :description %>
+        <%= f.label :category_id %>
+        <%= f.select :category_id, Category.all.map { |category| [category.name, category.id] } %>
 
-      <%= f.label :date %>
-      <%= f.datetime_local_field :date %>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
 
-      <%= f.label :address %>
-      <%= f.text_field :address %>
+        <%= f.label :date %>
+        <%= f.datetime_local_field :date %>
 
-      <%= f.label :photo_url %>
-      <%= f.url_field :photo_url %>
+        <div id="locationField">
+          <label for="address">Address</label>
+          <input id="autocomplete" onFocus="geolocate()" type="text" name="event[address]"></input>
+        </div>
 
-      <%= f.label :facebook_url %>
-      <%= f.url_field :facebook_url %>
+        <%= f.label :photo_url %>
+        <%= f.url_field :photo_url %>
 
-      <%= f.label :twitter_url %>
-      <%= f.url_field :twitter_url %>
+        <%= f.label :facebook_url %>
+        <%= f.url_field :facebook_url %>
 
-      <%= f.submit "Edit event" %>
-    <%- end -%>
+        <%= f.label :twitter_url %>
+        <%= f.url_field :twitter_url %>
+
+        <%= f.submit "Edit event" %>
+      <%- end -%>
+    </div>
   </div>
 </div>

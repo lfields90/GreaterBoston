@@ -1,6 +1,6 @@
 <div class="jumbotron">
   <h1>Welcome!</h1>
-  <% if current_user %>
+  <% if current_user && current_user.admin? %>
     <p><%= link_to("Hit the State!", states_path) %></p>
   <% else %>
     <p>Authenticate via one of the social networks to get started.</p>

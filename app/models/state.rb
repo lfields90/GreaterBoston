@@ -1,10 +1,10 @@
 class State < ActiveRecord::Base
   belongs_to :user
 
-  has_many :cities
-  has_many :neighborhoods, through: :cities
-  has_many :businesses, through: :neighborhoods
-  has_many :events, through: :neighborhoods
+  has_many :cities, dependent: :destroy
+  has_many :neighborhoods, through: :cities, dependent: :destroy
+  has_many :businesses, through: :neighborhoods, dependent: :destroy
+  has_many :events, through: :neighborhoods, dependent: :destroy
   has_many :elected_officials
   paginates_per 10
 

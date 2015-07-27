@@ -37,7 +37,7 @@
     <%= render "events/featured_events" %>
   </div>
 
-  <% if current_user.admin? %>
+  <% if current_user && current_user.admin? %>
     <%= link_to "Edit neighborhood", edit_neighborhood_path %> <br >
     <%= link_to "Delete neighborhood", neighborhood_path(@neighborhood), method: :delete %> <br >
   <% end %>

@@ -14,7 +14,7 @@ class CitiesController < ApplicationController
     @state = State.find(params[:state_id])
     @city = City.new(city_params)
     @city.state = @state
-    if current_user.admin?
+    if current_user && current_user.admin?
       if @city.save
         flash[:success] = "City added."
         redirect_to state_cities_path(@state)
