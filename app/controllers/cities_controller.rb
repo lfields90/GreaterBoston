@@ -7,6 +7,10 @@ class CitiesController < ApplicationController
   def new
     @city = City.new
     @state = State.find(params[:state_id])
+    unless current_user
+      flash[:alert] = "Please sign in to access that feature."
+      redirect_to state_cities_path(@state)
+    end
     redirect_to state_cities_path(@state) unless current_user.admin?
   end
 
@@ -14,7 +18,11 @@ class CitiesController < ApplicationController
     @state = State.find(params[:state_id])
     @city = City.new(city_params)
     @city.state = @state
-    if current_user && current_user.admin?
+    unless current_user
+      flash[:alert] = "Please sign in to access that feature."
+      redirect_to new_user_session_path
+    end
+    if current_user.admin?
       if @city.save
         flash[:success] = "City added."
         redirect_to state_cities_path(@state)
@@ -35,6 +43,10 @@ class CitiesController < ApplicationController
 
   def edit
     @city = City.find(params[:id])
+    unless current_user
+      flash[:alert] = "Please sign in to access that feature."
+      redirect_to new_user_session_path
+    end
     redirect_to state_cities_path(@city.state) unless current_user.admin?
   end
 

@@ -90,8 +90,6 @@ ActiveRecord::Schema.define(version: 20150721230845) do
     t.string   "last_name",                                                                                                           null: false
     t.string   "username",                                                                                                            null: false
     t.boolean  "admin",                  default: false
-    t.string   "provider"
-    t.string   "uid"
     t.string   "profile_photo",          default: "http://rampages.us/williamstw2/wp-content/uploads/sites/2505/2014/10/sprout.jpeg"
   end
 

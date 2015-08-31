@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   def index
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
-    @events = @neighborhood.events.order("date DESC")
+    @events = @neighborhood.events.order("date DESC").limit(9)
     @featured_events = @events.where(featured: true)
   end
 

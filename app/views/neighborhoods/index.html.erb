@@ -9,7 +9,7 @@
           </div>
           <div class="info">
             <h4 class="text-center"> <%= link_to neighborhood.name, edit_neighborhood_path(neighborhood.id) %> </h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem architecto perferendis quas aperiam debitis dolor soluta!</p>
+            <p> <%= neighborhood.description %> </p>
             <a href="<%= neighborhood_path(neighborhood) %>" class="button custom-button">Enter</a>
           </div>
         </div>

@@ -21,13 +21,7 @@
       <ul class="right">
         <li class="has-form">
           <div class="row collapse">
-          <!--     <form>
-            <%= form_tag root_path, :method => "get", id: "search-form" do %>
-            <div class="large-8 small-9 columns">
-              <%= text_field_tag :search, params[:search], required: true, placeholder: "Search" %>
-            </div>
-          <% end %>
-                    </form> -->
+
           </div>
         </li>
         <%- if current_user -%>
@@ -45,8 +39,8 @@
             </ul>
           </li>
         <%- else -%>
-          <li><%= link_to 'Facebook', '/auth/facebook' %></li>
-          <li><%= link_to 'Twitter', '/auth/twitter' %></li>
+          <!-- <li><%= link_to 'Facebook', '/auth/facebook' %></li> -->
+          <!-- <li><%= link_to 'Twitter', '/auth/twitter' %></li> -->
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
           <li><%= link_to 'Sign In', new_user_session_path %></li>
         <%- end -%>
@@ -80,7 +74,7 @@
         <a href="/faq">Faq</a>
         <a href="/contact">Contact</a>
       </p>
-      <p class="copywrite">Copywrite © 2015</p>
+      <p class="copywrite">Copyright © 2015</p>
     </div>
     <div class="small-12 medium-6 large-4 columns">
       <ul class="contact">

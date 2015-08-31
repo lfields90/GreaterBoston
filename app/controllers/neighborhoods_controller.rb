@@ -37,8 +37,17 @@ class NeighborhoodsController < ApplicationController
 
   def edit
     @neighborhood = Neighborhood.find(params[:id])
-    redirect_to city_neighborhoods_path(@city) unless current_user.admin?
+    @city = @neighborhood.city
+    unless current_user
+      flash[:alert] = "Please sign in to access that feature."
+      return redirect_to new_user_session_path
+    end
+    unless current_user && current_user.admin?
+      redirect_to city_neighborhoods_path(@city.id)
+    end
   end
+
+
 
   def update
     @neighborhood = Neighborhood.find(params[:id])
