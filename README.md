@@ -1,5 +1,7 @@
 ![Build Status](https://codeship.com/projects/<c8493ba0-0c63-0133-1fb7-46840019e268>/status?branch=master)![Code Climate](https://codeclimate.com/github/lfields90/GreaterBoston.png) ![Coverage Status](https://coveralls.io/repos/lfields90/GreaterBoston/badge.png)
 
+**The town of Hyde Park within the city Boston is currently the only town being worked on.**
+
 Predefined cities:
 - Boston
 - Brookline

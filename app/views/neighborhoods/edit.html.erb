@@ -1,6 +1,7 @@
-<div class="large-12">
-  <h1>Edit Neighborhood</h1>
+<div class="edit-page-div large-7 large-centered columns">
+  <h1 class="edit-headers">Edit Neighborhood</h1>
   <div class="panel">
+    <h5>What would you like to change?</h5>
     <%= form_for @neighborhood do |f| %>
       <%= f.label :name %>
       <%= f.text_field :name %>
@@ -8,7 +9,7 @@
       <%= f.label :description %>
       <%= f.text_area :description %>
 
-      <%= f.submit "Edit neighborhood" %>
+      <%= f.submit "Edit neighborhood", :class => "button expand" %>
     <%- end -%>
   </div>
 </div>
