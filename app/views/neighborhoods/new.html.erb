@@ -1,5 +1,5 @@
-<div class="large-12">
-  <h1>New Neighborhood</h1>
+<div class="edit-page-div large-7 large-centered columns">
+  <h1 class="edit-headers">New Neighborhood</h1>
   <div class="panel">
     <%= form_for [@city, @neighborhood] do |f| %>
       <%= f.label :name %>
@@ -11,7 +11,7 @@
       <%= f.label :website_url %>
       <%= f.url_field :website_url %>
 
-      <%= f.submit "Add new neighborhood" %>
+      <%= f.submit "Add new neighborhood", :class => "button expand" %>
     <%- end -%>
   </div>
 </div>
