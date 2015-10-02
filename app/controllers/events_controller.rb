@@ -58,7 +58,7 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @user = current_user
-    if current_user && (@user.id == @event.user_id) || @user.admin?
+    if current_user && ((@user.id == @event.user_id) || @user.admin?)
       @event.destroy
       flash[:notice] = "Event deleted"
       redirect_to neighborhood_events_path(@event.neighborhood)
