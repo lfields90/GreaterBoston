@@ -1,5 +1,5 @@
-<div class="large-12">
-  <h1>Edit State</h1>
+<div class="div-height large-7 large-centered columns">
+  <h1 class="edit-headers">Edit State</h1>
   <div class="panel">
     <%= form_for @state do |f| %>
       <%= f.label :name %>
@@ -11,7 +11,7 @@
       <%= f.label :website_url %>
       <%= f.url_field :website_url %>
 
-      <%= f.submit "Edit state" %>
+      <%= f.submit "Edit state", class: "custom-button button expand"  %>
     <%- end -%>
   </div>
 </div>

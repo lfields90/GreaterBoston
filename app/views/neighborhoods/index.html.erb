@@ -2,13 +2,13 @@
   <div class="row">
     <center><h1 class="gb-text">Neighborhoods in <%= @city.name%></h1></center>
     <% @neighborhoods.each do |neighborhood| %>
-      <div class="medium-4 small-6 columns">
+      <div class="large-4 medium-6 small-10 medium-uncentered small-centered columns">
         <div class="box">
           <div class="box-icon">
             <span <%= image_tag("Greater.png") %> ></span>
           </div>
-          <div class="info">
-            <h4 class="text-center"> <%= link_to neighborhood.name, edit_neighborhood_path(neighborhood.id) %> </h4>
+          <div class="info text-center">
+            <h4> <%= link_to neighborhood.name, edit_neighborhood_path(neighborhood.id) %> </h4>
             <p> <%= neighborhood.description %> </p>
             <a href="<%= neighborhood_path(neighborhood) %>" class="button custom-button">Enter</a>
           </div>
@@ -16,9 +16,10 @@
       </div>
     <% end %>
   </div>
-
-  <% if current_user && current_user.admin? %>
-    <%= link_to "Add a neighborhood", new_city_neighborhood_path %><br >
-  <% end %>
-  <%= link_to "View cities", state_cities_path(@city.state) %>
+  <div class="text-center">
+    <% if current_user && current_user.admin? %>
+      <%= link_to "Add a neighborhood", new_city_neighborhood_path, class: "custom-button button gimmie-margin" %><br >
+    <% end %>
+    <%= link_to "View cities", state_cities_path(@city.state), class: "custom-button button" %>
+  </div>
 </div>

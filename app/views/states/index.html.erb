@@ -1,22 +1,25 @@
-<div class="row">
-  <center><h1>States</h1></center>
-  <% @states.each do |state| %>
-    <div class="medium-4 small-6 columns">
-      <div class="box">
-        <div class="box-icon">
-          <span <%= image_tag("Greater.png") %> ></span>
-        </div>
-        <div class="info">
-          <h4 class="text-center"> <%= link_to state.name, state_path(state) %> </h4>
-          <p> <%= state.description.truncate(150, separator: ' ') %> </p> 
-          <a href="<%= state_cities_path(state.id) %>" class="button custom-button">Enter</a>
+<div class="gb-index">
+  <div class="row">
+    <h1 class="gb-text">States</h1>
+    <% @states.each do |state| %>
+      <div class="large-4 medium-6 small-10 small-centered columns">
+        <div class="box">
+          <div class="box-icon">
+            <span <%= image_tag("Greater.png") %> ></span>
+          </div>
+          <div class="info text-center">
+            <h4> <%= link_to state.name, state_path(state) %> </h4>
+            <p> <%= state.description.truncate(255, separator: ' ') %> </p>
+            <a href="<%= state_cities_path(state.id) %>" class="button custom-button">Enter</a>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+  <div class="text-center">
+    <% if current_user && current_user.admin? %>
+      <%= link_to "Add a state", new_state_path, class: "custom-button button gimmie-margin" %> <br >
+    <% end %>
+    <%= link_to "Home", root_path, class: "custom-button button" %>
+  </div>
 </div>
-
-<% if current_user && current_user.admin? %>
-  <%= link_to "Add a state", new_state_path %> <br >
-<% end %>
-<%= link_to "Home", root_path %>

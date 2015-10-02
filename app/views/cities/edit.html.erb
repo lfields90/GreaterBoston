@@ -1,4 +1,4 @@
-<div class="edit-page-div large-7 large-centered columns">
+<div class="div-height large-7 large-centered columns">
   <h1 class="edit-headers">Edit City</h1>
   <div class="panel">
     <%= form_for @city do |f| %>
@@ -11,7 +11,7 @@
       <%= f.label :website_url %>
       <%= f.url_field :website_url %>
 
-      <%= f.submit "Edit city", class: "button expand" %>
+      <%= f.submit "Edit city", class: "custom-button button expand" %>
     <%- end -%>
   </div>
 </div>

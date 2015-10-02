@@ -1,24 +1,25 @@
 <div class="gb-index">
   <div class="row">
-  <center><h1 class="gb-text">Cities in <%= @state.name%></h1></center>
-  <% @cities.each do |city| %>
-    <div class="large-4 medium-6 small-10 small-centered columns">
-      <div class="box">
-        <div class="box-icon">
-          <span <%= image_tag("Greater.png") %> ></span>
-        </div>
-        <div class="info text-center">
-          <h4> <%= link_to city.name, city_path(city) %> </h4>
-          <p> <%= city.description.truncate(255, separator: ' ') %> </p>
-          <a href="<%= city_neighborhoods_path(city) %>" class="text-center button custom-button ">Enter</a>
+    <h1 class="gb-text">Cities in <%= @state.name%></h1>
+    <% @cities.each do |city| %>
+      <div class="large-4 medium-6 small-10 small-centered columns">
+        <div class="box">
+          <div class="box-icon">
+            <span <%= image_tag("Greater.png") %> ></span>
+          </div>
+          <div class="info text-center">
+            <h4> <%= link_to city.name, city_path(city) %> </h4>
+            <p> <%= city.description.truncate(255, separator: ' ') %> </p>
+            <a href="<%= city_neighborhoods_path(city) %>" class="button custom-button ">Enter</a>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+  <div class="text-center">
+    <% if current_user && current_user.admin? %>
+      <%= link_to "Add a city", new_state_city_path, class: "custom-button button gimmie-margin" %> <br >
+    <% end %>
+    <%= link_to "View states", states_path, class: "custom-button button" %>
   </div>
 </div>
-
-<% if current_user && current_user.admin? %>
-  <%= link_to "Add a city", new_state_city_path %> <br >
-<% end %>
-<%= link_to "View states", states_path %>
