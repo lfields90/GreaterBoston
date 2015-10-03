@@ -14,4 +14,7 @@
       <%= f.submit "Edit city", class: "custom-button button expand" %>
     <%- end -%>
   </div>
+  <div class="panel">
+    <%= link_to "Delete city", city_path(@city), method: :delete, data: {confirm: "Are you sure?"}, class: "custom-button button expand" %>
+  </div>
 </div>

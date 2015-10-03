@@ -35,12 +35,6 @@
 
   <div class="events-around-spacer">
     <%= render "events/featured_events" %>
+    <center> <%= link_to "Back to neighborhoods", city_neighborhoods_path(@neighborhood.city), class: "custom-button button" %> </center>
   </div>
-
-  <% if current_user && current_user.admin? %>
-    <%= link_to "Edit neighborhood", edit_neighborhood_path %> <br >
-    <%= link_to "Delete neighborhood", neighborhood_path(@neighborhood), method: :delete %> <br >
-  <% end %>
-    <%= link_to "Neighborhoods in the city", city_neighborhoods_path(@neighborhood.city) %><br >
-    <%= link_to "Events in this neighborhood", neighborhood_events_path(@neighborhood) %> <br >
 </div>

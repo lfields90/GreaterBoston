@@ -13,6 +13,6 @@
     <%- end -%>
   </div>
   <div class="panel">
-    <%= link_to "Delete neighborhood", neighborhood_path(@neighborhood), method: :delete,  class: "custom-button button expand" %>
+    <%= link_to "Delete neighborhood", neighborhood_path(@neighborhood), method: :delete, data: {confirm: "Are you sure?"}, class: "custom-button button expand" %>
   </div>
 </div>
