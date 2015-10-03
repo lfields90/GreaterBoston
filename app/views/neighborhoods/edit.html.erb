@@ -12,4 +12,7 @@
       <%= f.submit "Edit neighborhood", class: "custom-button button expand" %>
     <%- end -%>
   </div>
+  <div class="panel">
+    <%= link_to "Delete neighborhood", neighborhood_path(@neighborhood), method: :delete,  class: "custom-button button expand" %>
+  </div>
 </div>

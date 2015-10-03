@@ -1,7 +1,7 @@
 class City < ActiveRecord::Base
   belongs_to :state
   has_many :neighborhoods, dependent: :destroy
-  has_many :businesses, through: :neighborhoods, dependent: :destroy
+  # has_many :businesses, through: :neighborhoods, dependent: :destroy
   has_many :events, through: :neighborhoods, dependent: :destroy
   has_many :elected_officials
   has_many :city_officials, through: :elected_officials

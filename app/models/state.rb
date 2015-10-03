@@ -3,7 +3,7 @@ class State < ActiveRecord::Base
 
   has_many :cities, dependent: :destroy
   has_many :neighborhoods, through: :cities, dependent: :destroy
-  has_many :businesses, through: :neighborhoods, dependent: :destroy
+  # has_many :businesses, through: :neighborhoods, dependent: :destroy
   has_many :events, through: :neighborhoods, dependent: :destroy
   has_many :elected_officials
   paginates_per 10
