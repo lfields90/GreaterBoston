@@ -60,3 +60,13 @@ a {
 }
 
 .event-topper:hover  {  /* INPUT WANTED HOVER ANIMATION HERE *//*   -ms-transform: rotate(-10deg);-webkit-transform: rotate(-10deg);-moz-transform: rotate(-10deg);-o-transform: rotate(-10deg);transform: rotate(-10deg); */}
+
+.profile-photo-size {
+  width: 200px;
+  height: 200px;
+}
+
+.profiles li {
+  text-decoration: none;
+  list-style-type: none;
+}

@@ -3,8 +3,8 @@
     <h1> <%= @user.first_name %> <%= @user.last_name %> </h1>
 </div>
 <div class="large-7 large-centered columns">
-  <div class="panel">
-      <%= image_tag(@user.profile_photo) %>
+  <div class="profiles panel text-center">
+      <%= image_tag(@user.profile_photo, class: "profile-photo-size") %>
       <ul>
         <li><strong>username:</strong> <%= @user.username %></li>
         <li><strong>email:</strong> <%= @user.email %></li>

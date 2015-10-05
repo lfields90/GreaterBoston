@@ -16,9 +16,9 @@
       </div>
     <% end %>
   </div>
-  <div class="text-center">
+  <div class="gimmie-margin text-center">
     <% if current_user && current_user.admin? %>
-      <%= link_to "Add a city", new_state_city_path, class: "custom-button button gimmie-margin" %> <br >
+      <%= link_to "Add a city", new_state_city_path, class: "custom-button button" %>
     <% end %>
     <%= link_to "View states", states_path, class: "custom-button button" %>
   </div>
