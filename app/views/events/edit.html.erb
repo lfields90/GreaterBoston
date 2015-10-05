@@ -4,7 +4,7 @@
     <div class="panel">
       <%= form_for [@neighborhood, @event] do |f| %>
         <%= f.label :name %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, autofocus: true %>
 
         <% if current_user && current_user.admin? %>
           <%= f.radio_button :featured, true %>

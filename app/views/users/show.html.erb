@@ -1,18 +1,19 @@
 <!-- image_tag(current_user.profile_photo) -->
-  <div class="page-header">
-    <center>
-      <h1>
-        <%= @user.first_name %> <%= @user.last_name %>
-      </h1>
-    </center>
-  </div>
+<div class="page-header text-center">
+    <h1> <%= @user.first_name %> <%= @user.last_name %> </h1>
+</div>
+<div class="large-7 large-centered columns">
   <div class="panel">
       <%= image_tag(@user.profile_photo) %>
+      <img src= "<%= @user.profile_photo %>" />
       <ul>
-        <li><strong>Name:</strong> <%= @user.first_name %></li>
+        <li> <%= @user.first_name %></li>
         <li><strong>email:</strong> <%= @user.email %></li>
       </ul>
   </div>
-  <p><%= link_to("Hit the State!", states_path) %></p>
-  <p><%= link_to("Hit the Categories Section!", categories_path) %></p><br >
-  <p><%= link_to("Edit User Profile", edit_user_registration_path) %></p>
+  <div class="text-center">
+    <%= link_to "Hit the State!", states_path, class: "custom-button button" %>
+    <%= link_to "Hit the Categories Section!", categories_path, class: "custom-button button" %>
+    <%= link_to "Edit User Profile", edit_user_registration_path, class: "custom-button button" %>
+  </div>
+</div>
