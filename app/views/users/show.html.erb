@@ -5,9 +5,8 @@
 <div class="large-7 large-centered columns">
   <div class="panel">
       <%= image_tag(@user.profile_photo) %>
-      <img src= "<%= @user.profile_photo %>" />
       <ul>
-        <li> <%= @user.first_name %></li>
+        <li><strong>username:</strong> <%= @user.username %></li>
         <li><strong>email:</strong> <%= @user.email %></li>
       </ul>
   </div>
