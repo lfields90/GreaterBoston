@@ -5,7 +5,7 @@
       <h2 class="local-header top"> <%= @neighborhood.name %>, MA </h2>
     </div>
     <div class="small-4 columns">
-      <%= link_to "Change Location", city_neighborhoods_path(@neighborhood.city_id), class: "local-header button" %>
+      <%= link_to "Change Location", city_neighborhoods_path(@neighborhood.city_id), class: "local-header custom-button button" %>
     </div>
   </div>
 
@@ -21,7 +21,7 @@
           <h2 class="local-header"> <%= @neighborhood.name %></h2>
       </div>
       <div class="small-4 columns">
-        <%= link_to "Add an event", new_neighborhood_event_path, class: "local-header button" %>
+        <%= link_to "Add an event", new_neighborhood_event_path, class: "local-header custom-button button" %>
       </div>
     </div>
   </div>
@@ -57,8 +57,8 @@
     </div>
   </div>
 
-<%= link_to "Back to neighborhood", neighborhood_path(@neighborhood) %> <br >
-<%= link_to "Neighborhoods in the city", city_neighborhoods_path(@neighborhood.city) %>
+<%= link_to "Back to neighborhood", neighborhood_path(@neighborhood), class: "custom-button button" %>
+<%= link_to "Neighborhoods in the city", city_neighborhoods_path(@neighborhood.city), class: "custom-button button" %>
 
 </div>
 </div>
