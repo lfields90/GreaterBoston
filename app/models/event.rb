@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
   belongs_to :user
 
   has_many :reviews, dependent: :destroy
-  has_many :attendees, dependent: :destroy
+  # has_many :attendees, dependent: :destroy
   has_many :users, through: :attendees
   paginates_per 10
 
